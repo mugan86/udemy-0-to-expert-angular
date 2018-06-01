@@ -3,7 +3,7 @@
 <hr>
 
 <div class="row card-deck">
-  <div class="col-md-4 animated fadeIn" *ngFor="let hero of heroes">
+  <div class="col-md-4 animated fadeIn" *ngFor="let hero of heroes; let i = index;">
     <img class="card-img-top" [src]="hero.img" [alt]="hero.name">
     <div class="card-body">
       <h5 class="card-title">{{ hero.name }}</h5>
@@ -11,7 +11,7 @@
       <p class="card-text">
         <small class="text-muted">Release date: {{ hero.release }}</small>
       </p>
-      <button type="button" class="btn btn-outline-primary btn-block">Ver más...</button>
+      <button type="button" (click) = "viewHeroDetails(i)" class="btn btn-outline-primary btn-block">Ver más...</button>
     </div>
   </div>
 </div>

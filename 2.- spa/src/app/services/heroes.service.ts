@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Hero } from './../components/heroes/hero.interface';
+import { Hero } from './../components/hero/hero.interface';
 
 @Injectable()
 export class HeroesService {
