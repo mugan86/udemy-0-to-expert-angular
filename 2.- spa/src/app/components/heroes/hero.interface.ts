@@ -1,7 +1,7 @@
-export interface Heroe {
-    nombre: string;
+export interface Hero {
+    name: string;
     bio: string;
     img: string;
-    aparicion: string;
-    casa: string;
+    release: string;
+    company: string;
 }

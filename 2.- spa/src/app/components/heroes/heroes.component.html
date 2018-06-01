@@ -1,15 +1,15 @@
-<h1>Héroes <small>Marvel y DC</small></h1>
+<h1 class="animated fadeIn">Héroes <small>Marvel y DC</small></h1>
 
 <hr>
 
-<div class="card-columns">
-  <div class="card">
-    <img class="card-img-top" src="assets/img/aquaman.png" alt="Card image cap">
+<div class="row card-deck">
+  <div class="col-md-4 animated fadeIn" *ngFor="let hero of heroes">
+    <img class="card-img-top" [src]="hero.img" [alt]="hero.name">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <h5 class="card-title">{{ hero.name }}</h5>
+      <p class="card-text"> {{ hero.bio }}</p>
       <p class="card-text">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <small class="text-muted">Release date: {{ hero.release }}</small>
       </p>
       <button type="button" class="btn btn-outline-primary btn-block">Ver más...</button>
     </div>
