@@ -52,6 +52,13 @@ export class HeroesService {
       img: 'assets/img/wolverine.png',
       release: '1974-11-01',
       company: 'Marvel'
+    },
+    {
+      name: 'ddd',
+      bio: 'En el universo ficticio de Marvel, Wolverine posee poderes regenerativos que pueden curar cualquier herida, por mortal que ésta sea, además ese mismo poder hace que sea inmune a cualquier enfermedad existente en la Tierra y algunas extraterrestres . Posee también una fuerza sobrehumana, que si bien no se compara con la de otros superhéroes como Hulk, sí sobrepasa la de cualquier humano.',
+      img: '',
+      release: '1974-11-01',
+      company: 'Marvel'
     }
   ];
 
