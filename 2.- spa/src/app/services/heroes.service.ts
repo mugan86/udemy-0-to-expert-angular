@@ -77,9 +77,11 @@ export class HeroesService {
   searchHeroe( findText: string): Hero[] {
     const heroesList: Hero[] = [];
     findText = findText.toLowerCase();
-    for ( const hero of this.heroes ) {
+    for ( let i = 0; i < this.heroes.length; i++ ) {
+      const hero = this.heroes[i];
       const name = hero.name.toLowerCase();
       if ( name.indexOf ( findText ) >= 0) {
+        hero.idx = i;
         heroesList.push (hero);
       }
     }

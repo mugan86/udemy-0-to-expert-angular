@@ -4,4 +4,5 @@ export interface Hero {
     img: string;
     release: string;
     company: string;
+    idx?: number;
 }
