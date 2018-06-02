@@ -1,5 +1,5 @@
 <h1>
-  {{ selectHero.name }} - <small> {{ selectHero.release }}</small>
+  {{ selectHero.name | uppercase }} - <small> {{ selectHero.release | date: 'y' }}</small>
 </h1>
 
 <div class="row animated fadeIn fast">
