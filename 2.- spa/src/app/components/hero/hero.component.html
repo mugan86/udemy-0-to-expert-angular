@@ -1,3 +1,24 @@
-<p>
-  hero works! {{ selectHero.name }}
-</p>
+<h1>
+  {{ selectHero.name }} - <small> {{ selectHero.release }}</small>
+</h1>
+
+<div class="row animated fadeIn fast">
+  <div class="col-md-4">
+    <img [src]="selectHero.img" [alt]="selectHero.name" class="img-fluid"/>
+    <br><br>
+    <button type="button" (click)="returnToList()" class="btn btn-outline-danger btn-block">Regresar</button>
+  </div>
+  <div class="col-md-8">
+      <h3>
+        {{ selectHero.name }}
+      </h3>
+      <hr>
+      <p>
+        {{ selectHero.bio }}
+      </p>
+      <div>
+        <img *ngIf="selectHero.company == 'DC'" src="assets/img/dc.png" class="img-logo">
+        <img *ngIf="selectHero.company == 'Marvel'" src="assets/img/marvel.png" class="img-logo">
+      </div>
+  </div>
+</div>

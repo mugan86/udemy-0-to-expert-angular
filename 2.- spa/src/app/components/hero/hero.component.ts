@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HeroesService } from '../../services/heroes.service';
 import { Hero } from './hero.interface';
 
@@ -11,6 +11,7 @@ import { Hero } from './hero.interface';
 export class HeroComponent implements OnInit {
   selectHero: Hero;
   constructor( private activatedRoute: ActivatedRoute,
+                private router: Router,
                 private _heroesService: HeroesService) {
     this.activatedRoute.params.subscribe( params => {
       console.log( params.id );
@@ -19,6 +20,10 @@ export class HeroComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  returnToList() {
+    this.router.navigate(['/heroes']);
   }
 
 }
