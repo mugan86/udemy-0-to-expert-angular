@@ -73,4 +73,16 @@ export class HeroesService {
   getHeroes(): Hero[] {
     return this.heroes;
   }
+
+  searchHeroe( findText: string): Hero[] {
+    const heroesList: Hero[] = [];
+    findText = findText.toLowerCase();
+    for ( const hero of this.heroes ) {
+      const name = hero.name.toLowerCase();
+      if ( name.indexOf ( findText ) >= 0) {
+        heroesList.push (hero);
+      }
+    }
+    return heroesList;
+  }
 }
