@@ -10,13 +10,13 @@ import { Hero } from './../hero/hero.interface';
 })
 export class SearchResultsComponent implements OnInit {
   findText: string;
-  heroesList: Hero[];
+  heroes: Hero[];
   constructor( private activateRoute: ActivatedRoute,
               private _heroesService: HeroesService) { }
 
   ngOnInit() {
     this.activateRoute.params.subscribe( params => {
-      this.heroesList = this._heroesService.searchHeroe(params.text);
+      this.heroes = this._heroesService.searchHeroe(params.text);
       this.findText = params.text;
     });
   }

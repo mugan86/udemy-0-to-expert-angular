@@ -1,12 +1,12 @@
 <div class="row">
 <h2>
   Find Text: "{{ findText }}" - 
-  Results: {{ heroesList.length }}
+  Results: {{ heroes.length }}
 </h2>
 </div>
 <hr>
 
-<div class="row" *ngIf="heroesList.length == 0" >
+<div class="row" *ngIf="heroes.length == 0" >
   <div class="col-lg-12">
     <div class="alert alert-info" role="alert">
       No existen resultados con el término {{ findText }}
@@ -15,18 +15,10 @@
 </div>
 <hr>
 
-<div class="row card-deck">
-  <ng-template ngFor let-hero [ngForOf]="heroesList" let-i="index">
-    <div class="col-md-4 animated fadeIn" *ngIf="hero.name.length > 0 && hero.img != ''">
-      <img class="card-img-top" [src]="hero.img" [alt]="hero.name">
-      <div class="card-body">
-        <h5 class="card-title">{{ hero.name }}</h5>
-        <p class="card-text"> {{ hero.bio }}</p>
-        <p class="card-text">
-          <small class="text-muted">Release date: {{ hero.release }}</small>
-        </p>
-        <button type="button" (click)="viewHeroDetails(i)" class="btn btn-outline-primary btn-block">Ver más...</button>
-      </div>
+<div class="row">
+  <ng-template ngFor let-hero [ngForOf]="heroes" let-i="index">
+    <div class="col-md-4">
+      <app-hero-card [hero]="hero"></app-hero-card>
     </div>
   </ng-template>
 </div>
