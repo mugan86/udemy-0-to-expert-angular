@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Hero } from './../hero/hero.interface';
 import { Router } from '@angular/router';
 
@@ -8,15 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./hero-card.component.css']
 })
 export class HeroCardComponent implements OnInit {
+  // Take father component info
   @Input() hero: Hero;
   @Input() index: number;
-  constructor( private router: Router) { }
+
+  // Emit info to father components
+  @Output() eventLog: EventEmitter<number>;
+
+  constructor(private router: Router) {
+    this.eventLog = new EventEmitter();
+  }
 
   ngOnInit() {
   }
 
   viewHeroDetails() {
     this.router.navigate(['/hero', this.index]);
+    this.eventLog.emit(this.index);
   }
 
 }

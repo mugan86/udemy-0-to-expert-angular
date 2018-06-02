@@ -18,4 +18,8 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.heroes = this._heroesService.getHeroes();
   }
+
+  showLog(index: number) {
+    console.log(`Select ${index} element`);
+  }
 }

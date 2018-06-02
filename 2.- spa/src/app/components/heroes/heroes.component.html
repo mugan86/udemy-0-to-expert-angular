@@ -5,7 +5,7 @@
 <div class="row">
   <ng-template ngFor let-hero [ngForOf]="heroes" let-i="index">
     <div class="col-md-4">
-      <app-hero-card [hero]="hero" [index]="i"></app-hero-card>
+      <app-hero-card (eventLog)="showLog( $event )" [hero]="hero" [index]="i"></app-hero-card>
     </div>
   </ng-template>
 </div>

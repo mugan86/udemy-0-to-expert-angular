@@ -21,4 +21,8 @@ export class SearchResultsComponent implements OnInit {
     });
   }
 
+  showLog(index: number) {
+    console.log(`Select ${index} element`);
+  }
+
 }
