@@ -3,7 +3,7 @@
 <hr>
 
 <div class="row card-deck">
-  <ng-template ngFor let-hero [ngForOf]="heroes">
+  <ng-template ngFor let-hero [ngForOf]="heroes" let-i="index">
     <div class="col-md-4 animated fadeIn" *ngIf="hero.name.length > 0 && hero.img != ''">
       <img class="card-img-top" [src]="hero.img" [alt]="hero.name">
       <div class="card-body">
