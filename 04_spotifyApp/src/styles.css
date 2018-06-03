@@ -9,6 +9,10 @@ hr {
     border-color: white;
 }
 
+#app-content {
+    margin-top: 10px;
+}
+
 .puntero {
     cursor: pointer;
 }
