@@ -8,12 +8,15 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SpotifyService {
-  headers;
   constructor( private httpClient: HttpClient) {
     console.log('Spotify Service running');
-    this.headers = new HttpHeaders({
+  }
+
+  getQuery(query: string) {
+    const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + TOKEN_API,
     });
+    return this.httpClient.get(`${API_URL}${query}`, { headers });
   }
   /**
    * Obtain Spotify Last Releases list
@@ -21,15 +24,10 @@ export class SpotifyService {
    * @returns {}
    */
   getNewReleases() {
-    const headers = this.headers;
-    return this.httpClient.get(API_URL + 'browse/new-releases', { headers })
-              .pipe( map( data => data['albums'].items ));
+    return this.getQuery('browse/new-releases?limit=20').pipe( map( data => data['albums'].items ));
   }
 
   getArtist(findText: string) {
-    // https://api.spotify.com/v1/
-    const headers = this.headers;
-    return this.httpClient.get(`${API_URL}search?q=${findText}&type=artist&limit=15`, { headers })
-            .pipe(map( data => data['artists'].items));
+    return this.getQuery(`search?q=${findText}&type=artist&limit=15`).pipe(map( data => data['artists'].items));
   }
 }
