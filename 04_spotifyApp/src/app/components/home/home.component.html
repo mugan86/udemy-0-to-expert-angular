@@ -6,7 +6,7 @@
 
 <div class="card-columns">
     <ng-template ngFor let-album [ngForOf]="albums" let-i="index">
-        <div class="card">
+        <div class="card fadeIn">
             <img class="card-img-top" [src]="album.images[0].url" [alt]="album.artists[0].name">
             <div class="card-body">
                 <h5 class="card-title"> {{ album.name }} - {{ album.release_date }}</h5>
