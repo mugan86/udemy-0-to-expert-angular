@@ -1,7 +1,8 @@
+
 <h1 class="animated fadeIn">Albums
     <small>New releases</small>
 </h1>
 
 <hr>
-
-<app-cards [items] = "albums"></app-cards>
+<app-loading *ngIf="loading"></app-loading>
+<app-cards *ngIf="!loading" [items] = "albums"></app-cards>

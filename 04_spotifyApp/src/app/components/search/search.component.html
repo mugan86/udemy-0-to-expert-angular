@@ -8,5 +8,6 @@
     <input type="text" #findText (keyup)="search(findText.value)" class="form-control" placeholder="Search artist...">
   </div>
 </div>
+<app-loading *ngIf="loading"></app-loading>
 
-<app-cards [items]="artists" class="animated fadeIn"></app-cards>
+<app-cards *ngIf="!loading" [items]="artists" class="animated fadeIn"></app-cards>
