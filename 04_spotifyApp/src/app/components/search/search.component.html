@@ -1,16 +1,12 @@
-<div class="row">
+<h1 class="animated fadeIn">Artists
+  <small>Search</small>
+</h1>
+
+<hr>
+<div class="row search-bar">
   <div class="col">
     <input type="text" #findText (keyup)="search(findText.value)" class="form-control" placeholder="Search artist...">
   </div>
 </div>
 
-<div class="card-columns m-5">
-  <ng-template ngFor let-artist [ngForOf]="artists" let-i="index">
-    <div class="card">
-      <img class="card-img-top" [src]="artist.images | noimage" [alt]="artist.name">
-      <div class="card-body">
-        <h5 class="card-title"> {{ artist.name }} </h5>
-      </div>
-    </div>
-  </ng-template>
-</div>
+<app-cards [items]="artists" class="animated fadeIn"></app-cards>

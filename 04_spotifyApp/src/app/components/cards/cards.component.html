@@ -1,0 +1,15 @@
+<div class="card-columns">
+  <ng-template ngFor let-item [ngForOf]="items" let-i="index">
+    <div class="card fadeIn">
+      <img class="card-img-top" [src]="item.images | noimage" alt="Card name">
+      <div class="card-body">
+        <h5 class="card-title"> {{ item.name }}</h5>
+        <p *ngIf="item.artists != undefined" class="card-text">
+          <span class="badge badge-primary" *ngFor="let artist of item.artists">
+            {{ artist.name }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </ng-template>
+</div>

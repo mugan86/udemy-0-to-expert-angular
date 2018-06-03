@@ -15,10 +15,11 @@ export class SearchComponent implements OnInit {
 
   search(findText: string) {
     console.log(findText);
-    this._spotifyService.getArtist(findText)
+    if (findText.length > 0) {
+      this._spotifyService.getArtist(findText)
       .subscribe((data: any) => {
         this.artists = data;
       });
+    }
   }
-
 }
