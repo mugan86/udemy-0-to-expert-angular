@@ -1,6 +1,6 @@
 <div class="card-columns">
   <ng-template ngFor let-item [ngForOf]="items" let-i="index">
-    <div class="card fadeIn">
+    <div (click)="showArtist( item )" class="card fadeIn puntero">
       <img class="card-img-top" [src]="item.images | noimage" alt="Card name">
       <div class="card-body">
         <h5 class="card-title"> {{ item.name }}</h5>
