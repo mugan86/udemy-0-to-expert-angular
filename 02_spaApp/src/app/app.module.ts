@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // Routes
-import { APP_ROUTING } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 
 // Services
 import { HeroesService } from './services/heroes.service';
@@ -10,8 +10,11 @@ import { HeroesService } from './services/heroes.service';
 // Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
+
+// Modules
+import { ComponentsModule } from './components/components.module';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
@@ -20,21 +23,20 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    AboutComponent,
     HeroesComponent,
     HeroComponent,
+    HeroCardComponent,
     SearchResultsComponent,
-    HeroCardComponent
+    NavbarComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    APP_ROUTING
+    CommonModule,
+    ComponentsModule,
+    RouterModule
   ],
-  providers: [
-    HeroesService
-  ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

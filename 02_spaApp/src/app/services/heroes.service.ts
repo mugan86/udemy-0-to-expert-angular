@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './../components/hero/hero.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HeroesService {
   private heroes: any[] = [
     {
