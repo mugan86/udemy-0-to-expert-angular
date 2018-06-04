@@ -16,7 +16,7 @@ export class SpotifyService {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + TOKEN_API,
     });
-    return this.httpClient.get(`${API_URL}${query}`, { headers });
+    return this.httpClient.get(`${ API_URL }${ query }`, { headers });
   }
   /**
    * Obtain Spotify Last Releases list
@@ -28,10 +28,14 @@ export class SpotifyService {
   }
 
   getArtistQuery(findText: string) {
-    return this.getQuery(`search?q=${findText}&type=artist&limit=15`).pipe(map( data => data['artists'].items));
+    return this.getQuery(`search?q=${ findText }&type=artist&limit=15`).pipe(map( data => data['artists'].items));
   }
 
   getArtist(id: string) {
-    return this.getQuery(`artists/${id}`);
+    return this.getQuery(`artists/${ id }`);
+  }
+
+  getArtistTopTracks(id: string) {
+    return this.getQuery(`artists/${ id }/top-tracks?country=ES`).pipe(map ( data => data['tracks']));
   }
 }
