@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
 
 // Components
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { APP_ROUTES } from './app.routes';
     NavbarComponent,
     NoimagePipe,
     CardsComponent,
-    LoadingComponent
+    LoadingComponent,
+    DomseguroPipe
   ],
   imports: [
     BrowserModule,

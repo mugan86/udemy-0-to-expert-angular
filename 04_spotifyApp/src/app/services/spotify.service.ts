@@ -14,7 +14,7 @@ export class SpotifyService {
 
   getQuery(query: string) {
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + TOKEN_API,
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
     });
     return this.httpClient.get(`${ API_URL }${ query }`, { headers });
   }
@@ -37,5 +37,9 @@ export class SpotifyService {
 
   getArtistTopTracks(id: string) {
     return this.getQuery(`artists/${ id }/top-tracks?country=ES`).pipe(map ( data => data['tracks']));
+  }
+
+  getToken() {
+    return this.httpClient.get('https://mugan86.com/spotify/get_token.php');
   }
 }
