@@ -5,13 +5,15 @@ import { AppComponent } from './app.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { CssComponent } from './components/css/css.component';
 import { ClassesComponent } from './components/classes/classes.component';
+import { HighlightedDirective } from './directives/highlighted.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NgStyleComponent,
     CssComponent,
-    ClassesComponent
+    ClassesComponent,
+    HighlightedDirective
   ],
   imports: [
     BrowserModule
