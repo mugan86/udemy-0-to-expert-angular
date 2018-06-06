@@ -17,3 +17,11 @@
 <button type="button" class="btn" 
   [ngClass] = "{ 'btn-danger': properties.danger, 'btn-info': !properties.danger }"
     (click)="properties.danger = !properties.danger">Change</button>
+
+  <br><br>
+  <p>Async proccess</p>
+  <button type="button" class="btn btn-primary" (click)="exectProccess()" [disabled]="loading">
+    <i class="fa" [ngClass]="{'fa-refresh fa-spin': loading, 'fa-save': !loading}"></i>&nbsp;&nbsp;
+    <span *ngIf="!loading">Save changes</span>
+    <span *ngIf="loading">Wait please</span>
+  </button>

@@ -10,17 +10,15 @@ export class ClassesComponent implements OnInit {
   properties: Object = {
     danger: true
   };
+  loading = false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  addAlertTypeClass() {
-    if (this.alert === 'alert-danger') {
-      this.alert = 'alert-info';
-    } else {
-      this.alert = 'alert-danger';
-    }
+  exectProccess() {
+    this.loading = true;
+    setTimeout( () => this.loading = false, 3000);
   }
 
 }
