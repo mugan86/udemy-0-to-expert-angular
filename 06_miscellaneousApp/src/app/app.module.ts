@@ -7,6 +7,12 @@ import { CssComponent } from './components/css/css.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { HighlightedDirective } from './directives/highlighted.directive';
 import { NgSwitchComponent } from './components/ng-switch/ng-switch.component';
+import { HomeComponent } from './components/home/home.component';
+import { APP_ROUTING } from './app.routes';
+import { UserComponent } from './components/user/user.component';
+import { UserNewComponent } from './components/user/user-new.component';
+import { UserDetailComponent } from './components/user/user-detail.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,9 +21,15 @@ import { NgSwitchComponent } from './components/ng-switch/ng-switch.component';
     CssComponent,
     ClassesComponent,
     HighlightedDirective,
-    NgSwitchComponent
+    NgSwitchComponent,
+    HomeComponent,
+    UserComponent,
+    UserNewComponent,
+    UserDetailComponent,
+    NavbarComponent
   ],
   imports: [
+    APP_ROUTING,
     BrowserModule
   ],
   providers: [],
