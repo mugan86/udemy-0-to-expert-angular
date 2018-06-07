@@ -13,6 +13,7 @@ import { UserComponent } from './components/user/user.component';
 import { UserNewComponent } from './components/user/user-new.component';
 import { UserDetailComponent } from './components/user/user-detail.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserEditComponent } from './components/user/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     UserComponent,
     UserNewComponent,
     UserDetailComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserEditComponent
   ],
   imports: [
     APP_ROUTING,
