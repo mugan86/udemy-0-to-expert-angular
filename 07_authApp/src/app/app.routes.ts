@@ -1,15 +1,13 @@
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
-import { UserComponent } from './components/user/user.component';
-import { USER_ROUTES } from './components/user/user.routes';
+import { PricesComponent } from './components/prices/prices.component';
+import { ProtectComponent } from './components/protect/protect.component';
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
-    {
-        path: 'user/:id', component: UserComponent,
-        children:  USER_ROUTES
-    },
+    { path: 'prices', component: PricesComponent },
+    { path: 'protect', component: ProtectComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
