@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit',
@@ -9,11 +10,12 @@ import { Component, OnInit } from '@angular/core';
   `,
   styles: []
 })
-export class UserEditComponent implements OnInit {
+export class UserEditComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor(private router: ActivatedRoute) {
+    this.router.parent.params.subscribe(p => {
+      console.log('Params Child (edit) ROUTE');
+      console.log(p);
+    }); }
 
 }
