@@ -9,7 +9,7 @@ import { AuthService } from './../../services/auth.service';
 export class ProtectComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
-
+  profile: any;
   ngOnInit() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
