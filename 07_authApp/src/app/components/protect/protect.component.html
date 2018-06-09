@@ -1,3 +1,15 @@
-<p>
-  protect works!
-</p>
+<div class="row" *ngIf="profile != undefined">
+  <div class="col-md-4">
+    <img [src]="profile.picture" class="img-fluid">
+  </div>
+  <div class="col-md-8">
+    <ul class="list-group">
+      <li class="list-group-item"> {{ profile.name }}</li>
+      <li class="list-group-item"> {{ profile.gender }}</li>
+      <li class="list-group-item"> {{ profile.updated_at | date:'dd-MM-yyyy' }}</li>
+    </ul>
+  </div>
+</div>
+<pre>
+{{ profile | json }}
+</pre>
