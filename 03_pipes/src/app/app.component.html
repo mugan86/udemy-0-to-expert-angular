@@ -53,11 +53,85 @@
         <td> number:'1.0-2' </td>
         <td> {{ PI | number:'1.0-2' }}</td>
       </tr>
+      <tr>
+        <!--output '26%'-->
+        <td>{{a}}</td>
+        <td> percent </td>
+        <td> {{ a | percent }}</td>
+      </tr>
+      <tr>
+        <!--output '0,134.950%'-->
+        <td>{{b}}</td>
+        <td> percent:'4.3-5' </td>
+        <td> {{ b | percent:'4.3-5' }}</td>
+      </tr>
+      <tr>
+        <!--output '0 134,950 %'-->
+        <!-- https://angular.io/guide/i18n#setting-up-locale-->
+        <td>{{b}}</td>
+        <td> percent:'4.3-5':'fr' </td>
+        <td> {{ b | percent:'4.3-5':'fr' }}</td>
+      </tr>
+      <tr>
+        <!--output '0 134,950 %'-->
+        <!-- https://angular.io/guide/i18n#setting-up-locale-->
+        <td>{{b}}</td>
+        <td> percent:'4.3-5':'es' </td>
+        <td> {{ b | percent:'4.3-5':'es' }}</td>
+      </tr>
+      <!-- Currency ISO codes: https://en.wikipedia.org/wiki/ISO_4217-->
+      <tr>
+        <!--output '$0.259'-->
+        <td>{{a}}</td>
+        <td> currency </td>
+        <td> {{ a | currency }}</td>
+      </tr>
+      <tr>
+        <!--output 'CA$0.26'-->
+        <td>{{a}}</td>
+        <td> currency:'CAD': </td>
+        <td> {{a | currency:'CAD'}}</td>
+      </tr>
+      <tr>
+        <!--output 'CAD0.26'-->
+        <td>{{a}}</td>
+        <td> currency:'EUR':'code' </td>
+        <td> {{ a | currency:'EUR':'code' }}</td>
+      </tr>
+      <tr>
+        <!--output 'CA$0,001.35'-->
+        <td>{{b}}</td>
+        <td> currency:'CAD':'symbol':'4.2-2' </td>
+        <td> {{b | currency:'CAD':'symbol':'4.2-2'}}</td>
+      </tr>
+      <tr>
+        <td>{{ money }}</td>
+        <td>number:'0.0-5'</td>
+        <td>{{ money | number:'0.0-5'}}</td>
+      </tr>
+      <tr>
+        <td>{{ promiseValue }}</td>
+        <td> - </td>
+        <td>{{ promiseValue }}</td>
+      </tr>
+      <tr>
+        <td>{{ promiseValue }}</td>
+        <td> json </td>
+        <td>{{ promiseValue | json }}</td>
+      </tr>
+      <tr>
+        <td>{{ promiseValue }}</td>
+        <td> async </td>
+        <td>{{ promiseValue | async }}</td>
+      </tr>
     </tbody>
   </table>
+
+
   <h4>Slice Example with ngFor</h4>
   <ul>
     <li *ngFor="let item of numbersList | slice:5:20"> {{ item }}</li>
   </ul>
-  
+  <h4>Json Pipe use</h4>
+  <pre>{{ hero | json }}</pre>
 </div>>
