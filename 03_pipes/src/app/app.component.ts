@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name = 'Anartz';
+  name2 = 'aNartZ MugIKA lEDo';ls
   numbersList = Array.from(Array(29).keys()); // [0,...,28]
   PI = Math.PI;
   a = 0.259;
@@ -25,4 +26,6 @@ export class AppComponent {
   promiseValue = new Promise( ( resolve, reject) => {
     setTimeout( () => resolve('Take data!!'), 3500 );
   });
+
+  dateValue = new Date();
 }

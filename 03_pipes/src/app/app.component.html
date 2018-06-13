@@ -124,8 +124,58 @@
         <td> async </td>
         <td>{{ promiseValue | async }}</td>
       </tr>
+      <!-- date formats https://www.w3.org/TR/NOTE-datetime-->
+      <tr>
+        <td>{{ dateValue }}</td>
+        <td> date </td>
+        <td>{{ dateValue | date }}</td>
+      </tr>
+      <tr>
+        <td>{{ dateValue }}</td>
+        <td> date:'medium'</td>
+        <td>{{ dateValue | date:'medium' }}</td>
+      </tr>
+      <tr>
+        <td>{{ dateValue }}</td>
+        <td> date:'M/d/yy' </td>
+        <td>{{ dateValue | date:'M/d/yy' }}</td>
+      </tr>
+      <tr>
+        <td>{{ dateValue }}</td>
+        <td> date:'fullDate' </td>
+        <td>{{ dateValue | date:'fullDate' }}</td>
+      </tr>
+      <tr>
+        <td>{{ dateValue }}</td>
+        <td> date:'longDate' </td>
+        <td>{{ dateValue | date:'longDate' }}</td>
+      </tr>
+      <tr>
+        <td>{{ dateValue }}</td>
+        <td> date:'MMMM d, y' </td>
+        <td>{{ dateValue | date:'MMMM d, y' }}</td>
+      </tr>
+      <tr>
+        <td>{{ dateValue }}</td>
+        <td> date:'h:mm:ss a zzzz' </td>
+        <td>{{ dateValue | date:'h:mm:ss a zzzz' }}</td>
+      </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td> capitalize </td>
+        <td>{{ name2 | capitalize }}</td>
+      </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td> capitalize:false </td>
+        <td>{{ name2 | capitalize:false }}</td>
+      </tr>
     </tbody>
   </table>
+  
+
+
+
 
 
   <h4>Slice Example with ngFor</h4>
