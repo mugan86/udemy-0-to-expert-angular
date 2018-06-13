@@ -1,0 +1,32 @@
+{
+    "ABOUT": {
+        "TITLE": "Sobre la aplicación",
+        "DESC": "Komikietan agertzen diren pertsonai batzuen aplikazioa da"
+    },
+    "AUTHOR": "Anartz Mugika Ledo",
+    "EMAIL": "mugan86@gmail.com",
+    "GITHUB": "https://github.com/mugan86",
+    "HEROES": {
+        "MAIN_TITLE": "Comic App",
+        "RELEASE_DATE": "Publicado en:",
+        "SECONDARY_TITLE": "Esta es una aplicación de comics.",
+        "SHOW_MORE": "Ver más..."
+    },
+    "HOME": {
+        "TITLE": "Comic App",
+        "DESC": "Esta es una aplicación de comics."
+    },
+    "LANGS" : {
+        "EN": "Inglés",
+        "ES": "Español",
+        "EU": "Euskera"
+    },
+    "MENU" : {
+        "ABOUT": "Sobre la aplicación",
+        "HEROES": "Heroes",
+        "HOME": "Inicio"
+    },
+    "SEARCH": "Search",
+    "TRANSLATE_TEXT_EXAMPLE": "Kaixo Language Config library adibidera!!",
+    "TWITTER": "@mugan86"
+}

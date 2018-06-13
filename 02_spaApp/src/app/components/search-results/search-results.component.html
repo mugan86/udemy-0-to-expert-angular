@@ -4,7 +4,7 @@
   Results: {{ heroes.length }}
 </h2>
 </div>
-<hr>
+<hr *ngIf="heroes.length == 0">
 
 <div class="row" *ngIf="heroes.length == 0" >
   <div class="col-lg-12">

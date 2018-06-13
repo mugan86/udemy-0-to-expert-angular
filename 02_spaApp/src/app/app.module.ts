@@ -1,37 +1,32 @@
+// Modules
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ComponentsModule } from './components/components.module';
+import { LanguageConfigModule } from './language-config.module';
 
 // Routes
-import { APP_ROUTING } from './app.routes';
+import { AppRoutingModule } from './app.routes';
 
 // Services
 import { HeroesService } from './services/heroes.service';
 
 // Components
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
-import { HeroComponent } from './components/hero/hero.component';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { HeroCardComponent } from './components/hero-card/hero-card.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NavbarComponent,
-    HomeComponent,
-    AboutComponent,
-    HeroesComponent,
-    HeroComponent,
-    SearchResultsComponent,
-    HeroCardComponent
+    AppComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    APP_ROUTING
+    ComponentsModule,
+    HttpClientModule,
+    LanguageConfigModule.forRoot(['es', 'eu', 'en'], 'es')
   ],
+  exports: [ LanguageConfigModule],
   providers: [
     HeroesService
   ],

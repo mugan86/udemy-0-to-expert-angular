@@ -11,18 +11,18 @@
     <!-- active -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['home']">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLink]="['home']">{{ 'MENU.HOME' | translate }}</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['heroes']">Heroes</a>
+        <a class="nav-link" [routerLink]="['heroes']">{{ 'MENU.HEROES' | translate }}</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['about']">About</a>
+        <a class="nav-link" [routerLink]="['about']">{{ 'MENU.ABOUT' | translate }}</a>
       </li>
     </ul>
     <div class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #searchText (keyup.enter)="searchHeroe(searchText.value)">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="searchHeroe(searchText.value)">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="{{ 'SEARCH' | translate }}" aria-label="Search" #searchText (keyup.enter)="searchHeroe(searchText.value)">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="searchHeroe(searchText.value)">{{ 'SEARCH' | translate }}</button>
     </div>
   </div>
 </nav>
