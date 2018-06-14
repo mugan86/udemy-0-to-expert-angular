@@ -19,8 +19,7 @@ import { LanguageConfigService } from '../../../services/language-config.service
         color: white;
         text-decoration: underline
       }
-    
-    `;
+    `
   ]
 })
 export class NavbarComponent implements OnInit {
