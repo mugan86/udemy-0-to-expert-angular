@@ -1,12 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
     /**
-     * Raise the value exponentially
-     * Takes an exponent argument that defaults to 1.
+     * @param value Word in string form that want capitalize all word or only first
+     * @param all Default true. Define if capitalize all words (true) or only first word
+     * Takes all string words defaults to true
      * Usage:
-     *      value | exponentialStrength:exponent
-     * Example:
-     *      {{ 2 | exponentialStrength:10 }}
-     *   formats to: 1024
+     *      string | capitalize:all
+     * @example
+     * Example all word capitalize:
+     *      {{ 'aNartz MUGIKa LEdO' | capitalize }}
+     *   formats to: 'Anartz Mugika Ledo'
+     * Example all word capitalize:
+     *      {{ 'aNartz MUGIKa LEdO' | capitalize:false }}
+     *   formats to: 'Anartz mugika ledo'
+     * @return {string}
      */
     @Pipe({name: 'capitalize'})
     export class CapitalizePipe implements PipeTransform {

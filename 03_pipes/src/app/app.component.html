@@ -170,14 +170,29 @@
         <td> capitalize:false </td>
         <td>{{ name2 | capitalize:false }}</td>
       </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td> password:false </td>
+        <td>{{ name | password:false }}</td>
+      </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td> password:true </td>
+        <td>{{ name | password:true }}</td>
+      </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td> password:true:'p' </td>
+        <td>{{ name | password:true:'p' }}</td>
+      </tr>
+      <tr>
+        <td>{{ name }}</td>
+        <td> password:true:'jk' </td>
+        <td>{{ name | password:true:'jk' }}</td>
+      </tr>
     </tbody>
   </table>
   
-
-
-
-
-
   <h4>Slice Example with ngFor</h4>
   <ul>
     <li *ngFor="let item of numbersList | slice:5:20"> {{ item }}</li>

@@ -3,6 +3,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { PasswordPipe } from './pipes/password.pipe';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeEs from '@angular/common/locales/es';
@@ -14,7 +15,8 @@ registerLocaleData(localeEs, 'es');
 @NgModule({
   declarations: [
     AppComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    PasswordPipe
   ],
   imports: [
     BrowserModule
