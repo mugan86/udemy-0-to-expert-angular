@@ -6,7 +6,7 @@
   <div class="col-md-4">
     <img [src]="selectHero.img" [alt]="selectHero.name" class="img-fluid"/>
     <br><br>
-    <button type="button" (click)="returnToList()" class="btn btn-outline-danger btn-block">Regresar</button>
+    <button type="button" (click)="returnToList()" class="btn btn-outline-danger btn-block">{{ 'HERO.RETURN_TO_HEROES' | translate}}</button>
   </div>
   <div class="col-md-8">
       <h3>

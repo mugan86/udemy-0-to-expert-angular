@@ -22,7 +22,11 @@
     </ul>
     <div class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="{{ 'SEARCH' | translate }}" aria-label="Search" #searchText (keyup.enter)="searchHeroe(searchText.value)">
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="searchHeroe(searchText.value)">{{ 'SEARCH' | translate }}</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="searchHeroe(searchText.value)">{{ 'SEARCH' | translate }}</button>&nbsp;&nbsp;&nbsp;
+      <span class="langs" (click)="changeLanguage('es')" [ngClass]="{'lang-select':activeLanguage == 'es'}">ES</span>&nbsp;&nbsp;
+      <span class="langs" (click)="changeLanguage('en')" [ngClass]="{'lang-select':activeLanguage == 'en'}">EN</span>&nbsp;&nbsp;
+      <span class="langs" (click)="changeLanguage('eu')" [ngClass]="{'lang-select':activeLanguage == 'eu'}">EU</span>&nbsp;&nbsp;&nbsp;
+      
     </div>
   </div>
 </nav>

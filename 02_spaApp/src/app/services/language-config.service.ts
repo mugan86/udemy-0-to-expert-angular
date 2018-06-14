@@ -104,15 +104,15 @@ export class LanguageConfigService {
     }
 
     /***********************************************************************************************************
-   * @ngdoc method
-   * @name load()
-   * @methodOf lang-preferences#method
-   * @params <this.translate: TranslateService, langCodes: string[], this.selectLanguage: string>
-   * @description
-   * Function to load language to use in Angular App. Automatically detect our browser language and save in local
-   * preferences. If value store in preferences, load selection from localStorage
-   ************************************************************************************************************/
-    private getLanguage() {
+    * @ngdoc method
+    * @name load()
+    * @methodOf lang-preferences#method
+    * @params <this.translate: TranslateService, langCodes: string[], this.selectLanguage: string>
+    * @description
+    * Function to load language to use in Angular App. Automatically detect our browser language and save in local
+    * preferences. If value store in preferences, load selection from localStorage
+    ************************************************************************************************************/
+    getLanguage() {
         const language = window.localStorage.getItem('selectLanguage');
         if (language === null || language === undefined || language === '' || language === '') {
           return '';

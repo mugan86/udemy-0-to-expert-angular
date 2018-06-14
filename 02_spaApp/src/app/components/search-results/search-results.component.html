@@ -1,7 +1,7 @@
 <div class="row">
 <h2>
-  Find Text: "{{ findText }}" - 
-  Results: {{ heroes.length }}
+  {{ 'SEARCH_OPTIONS.FIND_TEXT' | translate}} "{{ findText }}" - 
+  {{ 'SEARCH_OPTIONS.RESULTS' | translate}} {{ heroes.length }}
 </h2>
 </div>
 <hr *ngIf="heroes.length == 0">
@@ -9,7 +9,7 @@
 <div class="row" *ngIf="heroes.length == 0" >
   <div class="col-lg-12">
     <div class="alert alert-info" role="alert">
-      No existen resultados con el término {{ findText }}
+      {{ 'SEARCH_OPTIONS.NO_RESULTS_WITH_SEARCH' | translate}} {{ findText }}
     </div>
   </div>
 </div>

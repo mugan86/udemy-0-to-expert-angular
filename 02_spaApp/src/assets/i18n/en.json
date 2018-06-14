@@ -1,15 +1,18 @@
 {
     "ABOUT": {
         "TITLE": "About app",
-        "DESC": "Komikietan agertzen diren pertsonai batzuen aplikazioa da"
+        "TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
     },
     "AUTHOR": "Anartz Mugika Ledo",
     "EMAIL": "mugan86@gmail.com",
     "GITHUB": "https://github.com/mugan86",
+    "HERO": {
+        "RETURN_TO_HEROES": "Return to heroes list"
+    },
     "HEROES": {
-        "MAIN_TITLE": "Comic App",
+        "MAIN_TITLE": "Heroes",
         "RELEASE_DATE": "Release date:",
-        "SECONDARY_TITLE": "Esta es una aplicación de comics.",
+        "SECONDARY_TITLE": "Marvel & DC.",
         "SHOW_MORE": "Show more..."
     },
     "HOME": {
@@ -27,6 +30,11 @@
         "HOME": "Home"
     },
     "SEARCH": "Search",
+    "SEARCH_OPTIONS": {
+        "FIND_TEXT": "Search input text: ",
+        "NO_RESULTS_WITH_SEARCH": "No results found with input search: ",
+        "RESULTS": "Results"
+    },
     "TRANSLATE_TEXT_EXAMPLE": "Hello Language Config library adibidera!!",
     "TWITTER": "@mugan86"
 }
