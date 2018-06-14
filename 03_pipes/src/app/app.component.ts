@@ -28,4 +28,6 @@ export class AppComponent {
   });
 
   dateValue = new Date();
+
+  videoId = 'iywaBOMvYLI';
 }

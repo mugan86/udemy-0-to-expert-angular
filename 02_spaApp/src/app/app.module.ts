@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentsModule } from './components/components.module';
 import { LanguageConfigModule } from './language-config.module';
+import { HttpClientModule } from '@angular/common/http';
+import { WidgetsModule } from './widgets/widgets.module';
 
 // Routes
 import { AppRoutingModule } from './app.routes';
@@ -23,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserModule,
     ComponentsModule,
+    WidgetsModule,
     HttpClientModule,
     LanguageConfigModule.forRoot(['es', 'eu', 'en'], 'es')
   ],
