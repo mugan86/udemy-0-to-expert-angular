@@ -7,15 +7,21 @@
     <form (ngSubmit)="save()" #forma="ngForm">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" 
-                [(ngModel)] ="heroe.name" [ngModelOptions]="{standalone: true}"
-                id="name" aria-describedby="nameHelp" placeholder="Enter name" required>
-        <small id="nameHelp" class="form-text text-muted">Input hero name!</small>
+        <input id="name" name="name" class="form-control"
+            required minlength="4" [(ngModel)]="heroe.name" #name="ngModel">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+              <div *ngIf="name.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="name.errors.minlength">
+                Name must be at least 4 characters long.
+              </div>
+            </div>  
       </div>
-       <div class="form-group">
+      <div class="form-group">
         <label for="company">Company</label>
         <select class="form-control" id="company" [(ngModel)] ="heroe.company"
-            [ngModelOptions]="{standalone: true}" required>
+            [ngModelOptions]="{standalone: true}">
           <option value="Marvel">Marvel</option>
           <option value="DC">DC</option>
           <option value="">Other</option>
@@ -28,7 +34,8 @@
       <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">Save</button>
       {{forma.valid}}
     </form>
-
-    
   </div>
 </div>
+
+
+
