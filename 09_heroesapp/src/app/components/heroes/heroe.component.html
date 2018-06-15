@@ -4,25 +4,31 @@
 
 <div class="row animated fadeIn fast">
   <div class="col-md-12">
-    <form>
+    <form (ngSubmit)="save()" #forma="ngForm">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name">
+        <input type="text" class="form-control" 
+                [(ngModel)] ="heroe.name" [ngModelOptions]="{standalone: true}"
+                id="name" aria-describedby="nameHelp" placeholder="Enter name" required>
         <small id="nameHelp" class="form-text text-muted">Input hero name!</small>
       </div>
        <div class="form-group">
-        <label for="company">Example select</label>
-        <select class="form-control" id="company">
+        <label for="company">Company</label>
+        <select class="form-control" id="company" [(ngModel)] ="heroe.company"
+            [ngModelOptions]="{standalone: true}" required>
           <option value="Marvel">Marvel</option>
           <option value="DC">DC</option>
-          <option value="Other">Other</option>
+          <option value="">Other</option>
         </select>
       </div>
       <div class="form-group">
         <label for="bio">Biography</label>
-        <textarea class="form-control" id="bio" rows="3"></textarea>
+        <textarea class="form-control" id="bio" rows="3" [(ngModel)] ="heroe.bio" [ngModelOptions]="{standalone: true}" required></textarea>
       </div>
-      <button type="submit" class="btn btn-outline-primary">Save</button>
+      <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">Save</button>
+      {{forma.valid}}
     </form>
+
+    
   </div>
 </div>
