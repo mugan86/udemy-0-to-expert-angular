@@ -1,3 +1,39 @@
-<p>
-  heroes works!
-</p>
+<h1>Heroes</h1>
+<hr>
+
+<div class="row">
+  <div class="col-md-12 text-right">
+  <!-- Al estar dentro de un router-outlet hay que añadir un "/" para que salga fuera y acceda
+        correctamente a la ruta que queremos ir
+  -->
+  <button [routerLink]="['/heroe', 'new']"
+      type="button" class="btn btn-outline-primary" type="button" name="button">
+    New Hero
+  </button>
+  </div>
+</div>
+
+<div class="row animated fadeIn">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-sm table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Company</th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
