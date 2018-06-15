@@ -7,8 +7,8 @@
     <form (ngSubmit)="save()" #forma="ngForm">
       <div class="form-group">
         <label for="name">Name</label>
-        <input id="name" name="name" class="form-control"
-            required minlength="4" [(ngModel)]="heroe.name" #name="ngModel">
+        <input id="name" name="name" class="form-control" [ngClass]="{'is-valid': !name.invalid, 'is-invalid': name.invalid}"
+            required minlength="4" [(ngModel)]="heroe.name" #name="ngModel" placeholder="Hero name">
             <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
               <div *ngIf="name.errors.required">
                 Name is required.
@@ -32,7 +32,6 @@
         <textarea class="form-control" id="bio" rows="3" [(ngModel)] ="heroe.bio" [ngModelOptions]="{standalone: true}" required></textarea>
       </div>
       <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">Save</button>
-      {{forma.valid}}
     </form>
   </div>
 </div>

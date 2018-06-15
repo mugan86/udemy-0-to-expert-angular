@@ -9,7 +9,7 @@ import { Heroe } from './../../interfaces/heroe.interface';
 export class HeroeComponent implements OnInit {
   heroe: Heroe = {
     name: '',
-    company: '',
+    company: 'Marvel',
     bio: ''
   };
   constructor() { }
