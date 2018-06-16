@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Heroe } from './../../interfaces/heroe.interface';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HeroesService } from './../../services/heroes.service';
 
 @Component({
@@ -14,8 +14,15 @@ export class HeroeComponent implements OnInit {
     company: 'Marvel',
     bio: ''
   };
+
+  new = false;
+  id: string;
+
   constructor( private _heroesService: HeroesService,
-              private route: Router) { }
+              private router: Router,
+              private route: ActivatedRoute) {
+    this.route.params.subscribe ( params =>  this.id = params['id']; );
+  }
 
   ngOnInit() {
   }
@@ -23,11 +30,22 @@ export class HeroeComponent implements OnInit {
   save() {
     console.log('Save action');
     console.log(this.heroe);
-    this._heroesService.newHero(this.heroe)
-      .subscribe( data=> {
-        this.route.navigate(['/heroe', data.name]);
-      },
-      error=> console.error(error));
+    if ( this.id === 'new') {
+      console.log('new');
+      this._heroesService.newHero(this.heroe)
+        .subscribe( data=> {
+          this.router.navigate(['/heroe', data.name]);
+        },
+        error=> console.error(error));
+    } else {
+      console.log(`Update ${ this.id }`);
+      this._heroesService.updateHero(this.heroe, this.id)
+        .subscribe( data=> {
+          console.log(data);
+        },
+        error=> console.error(error));
+    }
+    
   }
 
 }
