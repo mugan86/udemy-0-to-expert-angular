@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Heroe } from './../../interfaces/heroe.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HeroesService } from './../../services/heroes.service';
@@ -21,7 +22,13 @@ export class HeroeComponent implements OnInit {
   constructor( private _heroesService: HeroesService,
               private router: Router,
               private route: ActivatedRoute) {
-    this.route.params.subscribe ( params =>  this.id = params['id']; );
+    this.route.params.subscribe ( params =>  {
+      this.id = params['id'];
+      if (this.id !== 'new') {
+        this._heroesService.getHeroe( this.id )
+          .subscribe ( data => console.log(data));
+      }
+    });
   }
 
   ngOnInit() {
@@ -33,19 +40,23 @@ export class HeroeComponent implements OnInit {
     if ( this.id === 'new') {
       console.log('new');
       this._heroesService.newHero(this.heroe)
-        .subscribe( data=> {
+        .subscribe( data => {
           this.router.navigate(['/heroe', data.name]);
         },
-        error=> console.error(error));
+        error => console.error(error));
     } else {
       console.log(`Update ${ this.id }`);
       this._heroesService.updateHero(this.heroe, this.id)
-        .subscribe( data=> {
+        .subscribe( data => {
           console.log(data);
         },
-        error=> console.error(error));
+        error => console.error(error));
     }
-    
+  }
+
+  addNew( form: NgForm) {
+    this.router.navigate(['/heroe', 'new']);
+    form.onReset();
   }
 
 }
