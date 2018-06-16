@@ -23,7 +23,7 @@ import { ModalComponent } from './widgets/modal/modal.component';
     HeroeComponent,
     KeysPipe,
     LoadingComponent,
-    ModalComponent
+    ModalComponent,
   ],
   imports: [
     APP_ROUTING,
@@ -33,6 +33,7 @@ import { ModalComponent } from './widgets/modal/modal.component';
     HttpClientModule,
     NgbModule.forRoot(),
   ],
+  entryComponents: [ModalComponent],
   providers: [HeroesService],
   bootstrap: [AppComponent]
 })

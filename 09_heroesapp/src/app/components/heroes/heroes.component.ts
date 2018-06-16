@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroesService } from './../../services/heroes.service';
 import { Heroe } from './../../interfaces/heroe.interface';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from '../../widgets/modal/modal.component';
 
 @Component({
   selector: 'app-heroes',
@@ -15,7 +17,8 @@ import { Heroe } from './../../interfaces/heroe.interface';
 export class HeroesComponent implements OnInit {
   heroes: Heroe;
   loading = true;
-  constructor(private _heroesService: HeroesService) { }
+  constructor(private _heroesService: HeroesService,
+              private modalService: NgbModal) { }
 
   ngOnInit() {
     this._heroesService.getHeroes().subscribe((data: Heroe) => {
@@ -26,15 +29,10 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(key$: string) {
-    console.log('Delete...', key$);
-    this._heroesService.deleteHero(key$)
-      .subscribe( response => {
-        console.log(response);
-        if (response ) {
-          console.error( response );
-        } else {
-          delete this.heroes[key$];
-        }
-      });
+    const modalRef = this.modalService.open(ModalComponent);
+    modalRef.componentInstance.title = 'Title';
+    modalRef.componentInstance.body = 'Delete... ' + key$;
+    modalRef.componentInstance.key$ = key$;
+    modalRef.componentInstance.heroes = this.heroes;
   }
 }
