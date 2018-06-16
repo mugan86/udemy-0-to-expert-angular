@@ -1,6 +1,5 @@
 <h1>Heroes</h1>
 <hr>
-
 <div class="row">
   <div class="col-md-12 text-right">
   <!-- Al estar dentro de un router-outlet hay que añadir un "/" para que salga fuera y acceda
@@ -12,17 +11,17 @@
     </button>
   </div>
 </div>
-
-<div class="row animated fadeIn">
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading" class="row animated fadeIn">
   <div class="col-md-12">
     <div class="table-responsive">
-      <table class="table table-sm">
+      <table class="table table-sm table-hover">
         <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Company</th>
-            <th scope="col">Options</th>
+            <th scope="col" class="text-right">Options</th>
           </tr>
         </thead>
         <tbody>
@@ -31,11 +30,23 @@
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ heroes[k].name }}</td>
               <td>{{ heroes[k].company }}</td>
-              <td>@mdo</td>
+              <td class="text-right w120">
+                 <button [routerLink]="['/heroe', k]" type="button" 
+                    class="btn btn-outline-success" type="button" name="button">
+                    <i class="fas fa-edit"></i> Editar
+                  </button>&nbsp;&nbsp;
+                  <button (click)="delete(k)" type="button" class="btn btn-outline-danger" type="button" name="button">
+                    <i class="fas fa-trash-alt"></i> Eliminar
+                  </button>
+              </td>
             </tr>
           </ng-template>
         </tbody>
       </table>
+      <div *ngIf="(heroes | keys).length ===0" 
+            class="alert alert-info" role="alert">
+        <strong>No hay</strong> registros que mostrar
+      </div>
     </div>
   </div>
 </div>

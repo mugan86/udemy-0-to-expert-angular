@@ -26,7 +26,7 @@ export class HeroeComponent implements OnInit {
       this.id = params['id'];
       if (this.id !== 'new') {
         this._heroesService.getHeroe( this.id )
-          .subscribe ( data => console.log(data));
+          .subscribe ( data => this.heroe = data);
       }
     });
   }
