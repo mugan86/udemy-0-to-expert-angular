@@ -16,8 +16,8 @@
 <div class="row animated fadeIn">
   <div class="col-md-12">
     <div class="table-responsive">
-      <table class="table table-sm table-dark">
-        <thead>
+      <table class="table table-sm">
+        <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
@@ -26,12 +26,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
+          <ng-template ngFor let-k [ngForOf]="heroes | keys" let-i="index">
+            <tr>
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ heroes[k].name }}</td>
+              <td>{{ heroes[k].company }}</td>
+              <td>@mdo</td>
+            </tr>
+          </ng-template>
         </tbody>
       </table>
     </div>

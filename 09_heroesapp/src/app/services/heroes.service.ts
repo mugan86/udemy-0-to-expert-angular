@@ -45,7 +45,11 @@ export class HeroesService {
 
     getHeroe ( key$: string ) {
       console.log(`${ this.heroeUrl }${ key$ }.json`);
-      return this.http.get<Hero>( `${ this.heroeUrl }${ key$ }.json` );
+      return this.http.get<Heroe>( `${ this.heroeUrl }${ key$ }.json` );
+    }
+
+    getHeroes () {
+      return this.http.get<Heroe>( this.heroesUrl );
     }
 }
 
