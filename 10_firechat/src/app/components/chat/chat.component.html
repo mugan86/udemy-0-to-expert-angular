@@ -1,8 +1,12 @@
 <h2>Chat</h2>
 <hr>
 <div class="app-mensajes" id="app-messages">
-  <div class="text-right" *ngFor="let chat of _cs.chats">
-    <span class="badge badge-primary">Anartz Mugika</span>
+  <p *ngIf="_cs.chats.length == 0"> No hay mensajes</p>
+  <div [ngClass]="{'text-right': _cs.user.uid == chat.uid }" 
+        *ngFor="let chat of _cs.chats">
+    <span class="badge" [ngClass]="{'badge-primary': _cs.user.uid == chat.uid,  'badge-success': _cs.user.uid != chat.uid}">
+      {{ chat.name }}
+    </span>
     <p>
       {{ chat.message }}
     </p>

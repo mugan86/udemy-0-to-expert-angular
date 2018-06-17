@@ -10,8 +10,10 @@
     <button type="buttton" class="btn btn-outline-danger"
       (click)="_cs.logout()">Salir</button>
   </div>
-  <!--<div class="chat-window">
-    <app-chat></app-chat>
-  </div>-->
+  
   <app-login *ngIf="!_cs.user.uid"></app-login>
+
+  <div class="chat-window" *ngIf="_cs.user.uid">
+    <app-chat></app-chat>
+  </div>
 </div>

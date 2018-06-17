@@ -34,7 +34,6 @@ export class ChatService {
     } else if (provider === 'twitter') {
       this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider());
     }
-    
   }
   logout() {
     this.user = {name: '', photo: '', uid: ''};
@@ -57,9 +56,10 @@ export class ChatService {
 
   addMessage( text: string) {
     const msg: Message = {
-      name: 'Demo',
+      name: this.user.name,
       message: text,
-      data: new Date().getTime()
+      data: new Date().getTime(),
+      uid: this.user.uid
     };
 
     return this.itemsCollection.add(msg);
