@@ -6,16 +6,20 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { AppComponent } from './app.component';
-
 import { environment } from '../environments/environment';
+
+import { AppComponent } from './app.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { ChatService } from './providers/chat.service';
+
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,

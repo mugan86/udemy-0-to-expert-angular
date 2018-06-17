@@ -15,7 +15,6 @@ export class ChatComponent implements OnInit {
       setTimeout(() => {
         this.element.scrollTop = this.element.scrollHeight;
       }, 20);
-      
     });
   }
 
