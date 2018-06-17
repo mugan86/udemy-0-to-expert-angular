@@ -29,9 +29,10 @@ export class HeroesComponent implements OnInit {
   }
 
   delete(key$: string) {
+    const selectHeroQuestion = `¿Estás segur@ de querer borrar el heroe ${ this.heroes[key$].name }?`;
     const modalRef = this.modalService.open(ModalComponent);
-    modalRef.componentInstance.title = 'Title';
-    modalRef.componentInstance.body = 'Delete... ' + key$;
+    modalRef.componentInstance.title = 'Eliminar heroe';
+    modalRef.componentInstance.body = selectHeroQuestion;
     modalRef.componentInstance.key$ = key$;
     modalRef.componentInstance.heroes = this.heroes;
   }
