@@ -12,8 +12,17 @@ export class ChatService {
   }
 
   loadMessages() {
-    this.itemsCollection = this.afs.collection<Message>('chats');
-    return this.itemsCollection.valueChanges().pipe(map( (messages: Message[]) => this.chats = messages));
+    // https://github.com/angular/angularfire2/blob/master/docs/rtdb/querying-lists.md
+    this.itemsCollection = this.afs.collection<Message>('chats', ref => ref.orderBy('data', 'desc').limit(5));
+    return this.itemsCollection.valueChanges().pipe(map( (messages: Message[]) => {
+                                                                this.chats = [];
+
+                                                                for ( const msg of messages ) {
+                                                                  this.chats.unshift( msg );
+                                                                }
+                                                                return this.chats;
+                                                          })
+    );
   }
 
   addMessage( text: string) {
