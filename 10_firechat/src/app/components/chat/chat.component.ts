@@ -8,15 +8,24 @@ import { ChatService } from './../../providers/chat.service';
 })
 export class ChatComponent implements OnInit {
   message = '';
-  constructor( private _cs: ChatService) { }
+  constructor( public _cs: ChatService) { }
 
   ngOnInit() {
-    this._cs.loadMessages().subscribe( (chats: any[]) => console.log(chats));
+    // Only suscribe to start observer value changes,...
+    this._cs.loadMessages().subscribe();
   }
 
   sendMessage() {
     console.log(this.message);
-    this.message = '';
+    if ( this.message.length === 0) {
+      return;
+    }
+    this._cs.addMessage(this.message)
+        .then( () => {
+          console.log('Message OK send!');
+          this.message = '';
+        })
+        .catch( (err) => console.error('Error when send', err ));
   }
 
 }
