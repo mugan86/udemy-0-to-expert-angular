@@ -8,7 +8,7 @@ import { ChatService } from './../../providers/chat.service';
 })
 export class LoginComponent {
 
-  constructor( public _cs: ChatService) { }
+  constructor( public _cs: ChatService ) { }
 
   logIn(provider: string) {
     console.log(provider);

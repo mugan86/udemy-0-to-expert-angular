@@ -5,13 +5,15 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { auth } from 'firebase/app';
 
 import { Message } from './../interfaces/message.interface';
+import { User } from './../interfaces/user.interface';
 import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ChatService {
   private itemsCollection: AngularFirestoreCollection<Message>;
   public chats: Message[] = [];
-  public user: any = {};
+  public user: User = {name: '', photo: '', uid: ''};
+
   constructor(  private afs: AngularFirestore,
                 public afAuth: AngularFireAuth ) {
     this.afAuth.authState.subscribe( takeUser => {
@@ -27,9 +29,15 @@ export class ChatService {
   }
 
   login( provider: string) {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    if (provider === 'google') {
+      this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    } else if (provider === 'twitter') {
+      this.afAuth.auth.signInWithPopup(new auth.TwitterAuthProvider());
+    }
+    
   }
   logout() {
+    this.user = {name: '', photo: '', uid: ''};
     this.afAuth.auth.signOut();
   }
 
