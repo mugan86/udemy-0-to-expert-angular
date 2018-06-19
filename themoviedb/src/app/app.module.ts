@@ -8,9 +8,12 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { SearchComponent } from './components/search/search.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
+import { APP_ROUTING } from './app.routes';
+
 
 // Services
 import { TheMovieDbApiService } from './providers/the-movie-db-api.service';
+import { MoviesPosterPipe } from './pipes/movies-poster.pipe';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,11 @@ import { TheMovieDbApiService } from './providers/the-movie-db-api.service';
     HomeComponent,
     MovieDetailsComponent,
     SearchComponent,
-    NavbarComponent
+    NavbarComponent,
+    MoviesPosterPipe,
   ],
   imports: [
+    APP_ROUTING,
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule

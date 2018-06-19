@@ -6,6 +6,8 @@ https://www.udemy.com/angular-2-fernando-herrera/learn/v4/content
 * [Heroes Single Page Aplication](https://mugan86.com/portfolio/udemy-course/angular/spa/)
 * [Pipes](https://mugan86.com/portfolio/udemy-course/angular/pipes/)
 * [Spotify App](https://mugan86.com/portfolio/udemy-course/angular/spotify/)
+* [Heroes App with Firebase Database](https://mugan86.com/portfolio/udemy-course/angular/spotify/)
+* [Firechat with Google / Twitter Login](https://mugan86.com/portfolio/udemy-course/angular/spotify/)
 
 # Take fast reference to POST request: 
 
