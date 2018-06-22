@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { TheMovieDbApiService } from './../../providers/the-movie-db-api.service';
-import { MovieShow } from './../../interfaces/movie-show.interface'
+import { MovieShow } from './../../interfaces/movie-show.interface',
 
 @Component({
   selector: 'app-home',

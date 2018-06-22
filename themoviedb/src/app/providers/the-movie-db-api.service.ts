@@ -4,10 +4,14 @@ import { HttpClient} from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
 
+import { MovieShow } from './../interfaces/movie-show.interface';
+
 @Injectable()
 export class TheMovieDbApiService {
   private apiKey = '9600ef8b528a214cba2d53c6cdd71708';
   private urlLocalHost = 'https://api.themoviedb.org/3';
+  results: MovieShow[];
+  searchText: string;
 
   constructor(private _http: HttpClient) {}
 
@@ -21,16 +25,20 @@ export class TheMovieDbApiService {
   }
 
   searchMovie(text: string) {
+    this.searchText = text;
     const request = `/search/movie?query=${ text }&sort_by=popularity.desc`;
-    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map((res: any) =>  res.results ));
+    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map((res: any) =>  {
+      this.results = res.results;
+      return res.results
+    } ));
   }
 
   newMoviesInNextWeek() {
-    let currentDay = new Date();
+    const currentDay = new Date();
     const currentDayStr = currentDay.getFullYear() + '-' + (currentDay.getMonth() + 1 ) + '-' + currentDay.getDate();
     console.log(currentDayStr);
     currentDay.setDate(currentDay.getDate() + 7);
-    var nextWeek = currentDay.getFullYear()+'-'+ (currentDay.getMonth()+1) +'-'+currentDay.getDate();
+    const nextWeek = `${currentDay.getFullYear()}-${(currentDay.getMonth() + 1)}-${currentDay.getDate()}`;
     console.log(nextWeek);
     const request = `/discover/movie?sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${currentDayStr}&primary_release_date.lte=${nextWeek}`;
     return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map((res: any) =>  res.results ));

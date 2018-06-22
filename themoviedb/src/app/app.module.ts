@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -29,6 +30,7 @@ import { GalleryComponent } from './widgets/gallery/gallery.component';
   imports: [
     APP_ROUTING,
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     HttpClientJsonpModule
   ],
