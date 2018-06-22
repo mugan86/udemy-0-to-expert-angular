@@ -1,0 +1,29 @@
+<br/>
+<h1>{{ title }}</h1>
+<hr/>
+<div class="row animated fadeIn fast" *ngIf="elements">
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-md-12 div-pic-1" [ngStyle]="{ 'background-image': 'url( ' + ( elements[0] | moviesPoster) + ' )'}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( elements[1] | moviesPoster) + ' )'}">
+      </div>
+      <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( elements[2] | moviesPoster) + ' )'}">
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( elements[3] | moviesPoster) + ' )'}">
+      </div>
+      <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( elements[4] | moviesPoster) + ' )'}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 div-pic-1" [ngStyle]="{ 'background-image': 'url( ' + ( elements[5] | moviesPoster) + ' )'}">
+      </div>
+    </div>
+  </div>
+</div>

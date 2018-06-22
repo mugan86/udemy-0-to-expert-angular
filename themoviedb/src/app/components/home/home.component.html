@@ -4,35 +4,11 @@
     <p class="lead">Aplicación que contiene la información de muchas películas y series ;).</p>
   </div>
 </div>
-<div class="container main-container" *ngIf="cinemaListings">
+<div class="container main-container">
   <br/>
-  <h1>Películas en cartelera</h1>
-  <hr/>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="row">
-        <div class="col-md-12 div-pic-1" [ngStyle]="{ 'background-image': 'url( ' + ( cinemaListings[numberList[0]] | moviesPoster) + ' )'}">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( cinemaListings[numberList[1]] | moviesPoster) + ' )'}">
-        </div>
-        <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( cinemaListings[numberList[2]] | moviesPoster) + ' )'}">
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="row">
-        <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( cinemaListings[numberList[3]] | moviesPoster) + ' )'}">
-        </div>
-        <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( cinemaListings[numberList[4]] | moviesPoster) + ' )'}">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 div-pic-1" [ngStyle]="{ 'background-image': 'url( ' + ( cinemaListings[numberList[5]] | moviesPoster) + ' )'}">
-        </div>
-      </div>
-    </div>
-  </div>
-    
+
+  <app-gallery [elements] = "cinemaListings|slice:0:6" title = "Películas en cartelera"></app-gallery>
+  <app-gallery [elements] = "populars|slice:0:6" title = "Películas en cartelera"></app-gallery>
+  <app-gallery [elements] = "kids|slice:0:6" title = "Películas en cartelera"></app-gallery>
+
 </div>

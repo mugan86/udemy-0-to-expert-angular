@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { TheMovieDbApiService } from './../../providers/the-movie-db-api.service';
+import { MovieShow } from './../../interfaces/movie-show.interface'
 
 @Component({
   selector: 'app-home',
@@ -8,32 +9,20 @@ import { TheMovieDbApiService } from './../../providers/the-movie-db-api.service
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  cinemaListings: any[];
-  numberList = [];
+  cinemaListings: MovieShow[];
+  populars: MovieShow[];
+  kids: MovieShow[];
   constructor( private _theMovieDbApi: TheMovieDbApiService) {
-    this.numberList = this.generateRandomPositions(6, 20);
-    this._theMovieDbApi.getMostPopular().subscribe((data: any) => {
-      console.log(data);
+    this._theMovieDbApi.getMostPopular().subscribe((data: MovieShow[]) => {
+      this.populars = data;
     });
 
-    this._theMovieDbApi.getKidsMostPopular().subscribe( (data: any ) => {
-      console.log(data);
+    this._theMovieDbApi.getKidsMostPopular().subscribe( (data: MovieShow[] ) => {
+      this.kids = data;
     });
 
-    this._theMovieDbApi.newMoviesInNextWeek().subscribe( (data: any ) => {
-      console.log(data);
+    this._theMovieDbApi.newMoviesInNextWeek().subscribe( (data: MovieShow[] ) => {
       this.cinemaListings = data;
     });
-  }
-
-  generateRandomPositions(listSize: number, limitResults: number) {
-    const numberList = [];
-    do {
-      const randomNumber = Math.floor(Math.random() * limitResults);
-      if (numberList.indexOf(randomNumber) === -1) {
-        numberList.push(randomNumber);
-      }
-    } while (numberList.length < listSize);
-    return numberList;
   }
 }

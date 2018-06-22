@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  movieDBImagesUrl: 'https://image.tmdb.org/t/p/w500/';
+  movieDBImagesUrl: 'https://image.tmdb.org/t/p/w500/'
 };
 
 /*

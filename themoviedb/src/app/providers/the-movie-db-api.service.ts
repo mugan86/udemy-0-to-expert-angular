@@ -17,29 +17,28 @@ export class TheMovieDbApiService {
 
   getMostPopular() {
     const request = '/discover/movie?sort_by=popularity.desc';
-    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map(res =>  res.results ));
+    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map( (res: any) =>  res.results ));
   }
 
   searchMovie(text: string) {
     const request = `/search/movie?query=${ text }&sort_by=popularity.desc`;
-    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map(res =>  res.results ));
+    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map((res: any) =>  res.results ));
   }
 
   newMoviesInNextWeek() {
-    let currentDay = new Date(); 
+    let currentDay = new Date();
     const currentDayStr = currentDay.getFullYear() + '-' + (currentDay.getMonth() + 1 ) + '-' + currentDay.getDate();
     console.log(currentDayStr);
-    var currentDay = new Date();
     currentDay.setDate(currentDay.getDate() + 7);
     var nextWeek = currentDay.getFullYear()+'-'+ (currentDay.getMonth()+1) +'-'+currentDay.getDate();
     console.log(nextWeek);
     const request = `/discover/movie?sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${currentDayStr}&primary_release_date.lte=${nextWeek}`;
-    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map(res =>  res.results ));
+    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map((res: any) =>  res.results ));
   }
 
   getKidsMostPopular() {
-    const request = `/discover/movie?certification.lte=G&sort_by=popularity.desc`;
-    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map(res =>  res.results ));
+    const request = `/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc`;
+    return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map((res: any) =>  res.results ));
   }
 
 

@@ -14,6 +14,7 @@ import { APP_ROUTING } from './app.routes';
 // Services
 import { TheMovieDbApiService } from './providers/the-movie-db-api.service';
 import { MoviesPosterPipe } from './pipes/movies-poster.pipe';
+import { GalleryComponent } from './widgets/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MoviesPosterPipe } from './pipes/movies-poster.pipe';
     SearchComponent,
     NavbarComponent,
     MoviesPosterPipe,
+    GalleryComponent,
   ],
   imports: [
     APP_ROUTING,
