@@ -1,3 +1,32 @@
-<p>
-  movie-details works!
-</p>
+<div *ngIf="movie" 
+  class="container main-container animated fadeIn fast">
+  <h1>{{ movie.original_title }}</h1>
+  <div class="row">
+    <div class="col-md-5">
+      <img [src]="movie | moviesPoster" [alt]="movie.title" class="img-thumbnail img-fluid"/>
+      <button type="button" (click)="returnToBeforePage()" class="btn btn-outline-primary btn-block">Return</button>
+    </div>
+    <div class="col-md-7">
+      <h3>Overview</h3>
+      <hr>
+      <p class="text-justify">
+        {{ movie.overview}}
+      </p>
+      <h4>Release date: </h4>
+      <p>
+        {{ movie.release_date}}
+      </p>
+      <h4>Tagline: </h4>
+      <p>
+        {{ movie.tagline}}
+      </p>
+      <p>
+        Popularity: <span class="badge badge-primary">{{ movie.popularity | number:'.0-0' }} / 10</span>
+      </p>
+      <p>
+        Average Votes:
+        <span class="badge badge-primary">{{ movie.vote_average }}</span>
+      </p>
+    </div>
+  </div>
+</div>
