@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TheMovieDbApiService } from './../../providers/the-movie-db-api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -11,7 +12,8 @@ export class SearchComponent {
   @Input() index;
   constructor(
               public _mtvshows: TheMovieDbApiService,
-              private router:ActivatedRoute) {
+              private router:ActivatedRoute,
+              private route: Router) {
     this.router.params.subscribe( params => {
       if ( params['text'] ) {
         this.search = params['text'];
@@ -26,7 +28,8 @@ export class SearchComponent {
     this._mtvshows.searchMovie( this.search ).subscribe();
   }
 
-  viewResultDetails() {
-    console.log('click');
+  viewResultDetails(id: number) {
+    console.log('click', id);
+    this.route.navigate(['/movie', id, 'search']);
   }
 }

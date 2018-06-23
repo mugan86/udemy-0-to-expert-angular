@@ -11,18 +11,25 @@
       </div>
     </div>
   </div>
-  <div class="card-columns">
-    <div class="card" *ngFor="let result of _mtvshows.results">
-      <img class="card-img-top" [src]="result|moviesPoster" [alt]="result.original_title">
-      <div class="card-body">
-        <h5 class="card-title">{{ result.title }}</h5>
-        <p class="card-text">
-          {{ result.overview | slice:0:250 }}
-          <span *ngIf="result.overview">...</span>
-        </p>
-        <p class="card-text"><small class="text-muted">{{ result.release_date }}</small></p>
-        <button type="button" (click)="viewResultDetails()" class="btn btn-outline-primary btn-block">Show details</button>
+  <div class="row" *ngIf="_mtvshows.search != undefined">
+    <h2 *ngIf="_mtvshows.search">Results: {{ _mtvshows.search.total_results }} </h2>
+    <div class="card-columns">
+      <div class="card" *ngFor="let result of _mtvshows.search.results">
+        <img class="card-img-top" [src]="result|moviesPoster" [alt]="result.original_title">
+        <div class="card-body">
+          <h5 class="card-title">{{ result.title }}</h5>
+          <p class="card-text">
+            {{ result.overview | slice:0:250 }}
+            <span *ngIf="result.overview">...</span>
+          </p>
+          <p class="card-text">
+            <small class="text-muted">{{ result.release_date }}</small>
+          </p>
+          <button type="button" (click)="viewResultDetails(result.id)" class="btn btn-outline-primary btn-block">Show details</button>
+        </div>
       </div>
     </div>
   </div>
+  <result-pagination *ngIf="_mtvshows.search.total_pages && _mtvshows.search.page" [totalPages]="_mtvshows.search.total_pages" [currentPage]="_mtvshows.search.page"></result-pagination>
+  
 </div>
