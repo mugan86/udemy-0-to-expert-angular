@@ -1,0 +1,27 @@
+<div class="row">
+  Pages: {{ totalPages }}
+</div>
+<div class="row">
+  <nav aria-label="Pagination alignment">
+    <ul class="pagination justify-content-center">
+      <li class="page-item ">
+        <a class="page-link" href="#">Prev</a>
+      </li>
+      <li class="page-item" [ngClass]="{'active': page == currentPage}" *ngFor="let page of listPages; let i = index">
+        <a [ngClass]="{'page-link': listPages[i] != -1 }" href="#">
+          <span *ngIf="listPages[i] != -1">
+             {{ listPages[i] }}
+          </span>
+          <span *ngIf="listPages[i] == -1">
+            ...
+          </span>
+          
+        </a>
+      </li>
+      
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
