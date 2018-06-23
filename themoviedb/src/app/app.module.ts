@@ -16,6 +16,7 @@ import { APP_ROUTING } from './app.routes';
 import { TheMovieDbApiService } from './providers/the-movie-db-api.service';
 import { MoviesPosterPipe } from './pipes/movies-poster.pipe';
 import { GalleryComponent } from './widgets/gallery/gallery.component';
+import { PaginationComponent } from './components/shared/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GalleryComponent } from './widgets/gallery/gallery.component';
     NavbarComponent,
     MoviesPosterPipe,
     GalleryComponent,
+    PaginationComponent
   ],
   imports: [
     APP_ROUTING,
