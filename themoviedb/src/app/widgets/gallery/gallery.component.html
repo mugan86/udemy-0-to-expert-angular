@@ -4,25 +4,37 @@
 <div class="row animated fadeIn fast" *ngIf="elements">
   <div class="col-sm-6">
     <div class="row">
-      <div class="col-md-12 div-pic-1" [ngStyle]="{ 'background-image': 'url( ' + ( elements[0] | moviesPoster) + ' )', 'background-position': 'center center'}">
+      <div class="puntero col-md-12 div-pic-1" 
+            [routerLink] = "['/movie', elements[0].id, 'home']"
+            [ngStyle]="{ 'background-image': 'url( ' + ( elements[0] | moviesPoster) + ' )', 'background-position': 'center center'}">
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( elements[1] | moviesPoster) + ' )', 'background-position': 'center center'}">
+      <div class="puntero col-md-6 div-pic-2" 
+            [routerLink] = "['/movie', elements[1].id, 'home']"
+            [ngStyle]="{ 'background-image': 'url( ' + ( elements[1] | moviesPoster) + ' )', 'background-position': 'center center'}">
       </div>
-      <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( elements[2] | moviesPoster) + ' )', 'background-position': 'center center'}">
+      <div class="puntero col-md-6 div-pic-2" 
+            [routerLink] = "['/movie', elements[2].id, 'home']"
+            [ngStyle]="{ 'background-image': 'url( ' + ( elements[2] | moviesPoster) + ' )', 'background-position': 'center center'}">
       </div>
     </div>
   </div>
   <div class="col-sm-6">
     <div class="row">
-      <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( elements[3] | moviesPoster) + ' )', 'background-position': 'center center'}">
+      <div class="puntero col-md-6 div-pic-2" 
+            [routerLink] = "['/movie', elements[3].id, 'home']"
+            [ngStyle]="{ 'background-image': 'url( ' + ( elements[3] | moviesPoster) + ' )', 'background-position': 'center center'}">
       </div>
-      <div class="col-md-6 div-pic-2" [ngStyle]="{ 'background-image': 'url( ' + ( elements[4] | moviesPoster) + ' )', 'background-position': 'center center'}">
+      <div class="puntero col-md-6 div-pic-2"
+            [routerLink] = "['/movie', elements[4].id, 'home']"
+            [ngStyle]="{ 'background-image': 'url( ' + ( elements[4] | moviesPoster) + ' )', 'background-position': 'center center'}">
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 div-pic-1" [ngStyle]="{ 'background-image': 'url( ' + ( elements[5] | moviesPoster) + ' )', 'background-position': 'center center'}">
+      <div class="puntero col-md-12 div-pic-1" 
+            [routerLink] = "['/movie', elements[5].id, 'home']"
+            [ngStyle]="{ 'background-image': 'url( ' + ( elements[5] | moviesPoster) + ' )', 'background-position': 'center center'}">
       </div>
     </div>
   </div>
