@@ -4,19 +4,20 @@ import { HttpClient} from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
 
-import { MovieShow } from './../interfaces/movie-show.interface';
+import { Search } from './../interfaces/search.interface';
+import { Movie } from '../interfaces/movie.interface';
 
 @Injectable()
 export class TheMovieDbApiService {
   private apiKey = '9600ef8b528a214cba2d53c6cdd71708';
   private urlLocalHost = 'https://api.themoviedb.org/3';
-  results: MovieShow[];
+  search: Search[] = [];
   searchText: string;
 
   constructor(private _http: HttpClient) {}
 
-  private getURL(request: string, language: string): string {
-    return `${this.urlLocalHost}${request}&api_key=${this.apiKey}&language=${language}&callback=JSONP_CALLBACK`;
+  private getURL(request: string, language: string, apiKeyFirst: boolean = false): string {
+    return `${this.urlLocalHost}${request}${((apiKeyFirst) ? '?' : '&')}api_key=${this.apiKey}&language=${language}&callback=JSONP_CALLBACK`;
   }
 
   getMostPopular() {
@@ -28,14 +29,21 @@ export class TheMovieDbApiService {
     this.searchText = text;
     const request = `/search/movie?query=${ text }&sort_by=popularity.desc`;
     return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map((res: any) =>  {
-      this.results = res.results;
-      return res.results
+      this.search = res;
+      return res.results;
     } ));
+  }
+
+  getMovie(id: number) {
+    const request = `/movie/${id}`;
+    return this._http.jsonp(this.getURL(request, 'es', true), '').pipe(map((res: Movie) => {
+      return res;
+    }));
   }
 
   newMoviesInNextWeek() {
     const currentDay = new Date();
-    const currentDayStr = currentDay.getFullYear() + '-' + (currentDay.getMonth() + 1 ) + '-' + currentDay.getDate();
+    const currentDayStr = `${currentDay.getFullYear()}-${(currentDay.getMonth() + 1)}-${currentDay.getDate()}`;
     console.log(currentDayStr);
     currentDay.setDate(currentDay.getDate() + 7);
     const nextWeek = `${currentDay.getFullYear()}-${(currentDay.getMonth() + 1)}-${currentDay.getDate()}`;
