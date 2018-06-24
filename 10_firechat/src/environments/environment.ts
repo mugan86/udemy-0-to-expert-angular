@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyCFhO1LXTpAQ-IClgQ_VD4KI7xXrEhNnd0',
+    apiKey: '<API-KEY>',
     authDomain: 'heroes-app-83fc9.firebaseapp.com',
     databaseURL: 'https://heroes-app-83fc9.firebaseio.com',
     projectId: 'heroes-app-83fc9',
