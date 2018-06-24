@@ -4,7 +4,7 @@ import { map } from 'rxjs/internal/operators/map';
 
 @Injectable()
 export class YoutubeApiService {
-  apiKey = 'AIzaSyDjSQp1NtdHgtAZT2_3gQADTnmpeppYdk8';
+  apiKey = 'API-KEY';
   url = 'https://www.googleapis.com/youtube/v3';
   constructor(private _http: HttpClient) { }
 
