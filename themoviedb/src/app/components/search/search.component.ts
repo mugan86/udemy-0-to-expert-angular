@@ -29,7 +29,6 @@ export class SearchComponent {
   }
 
   viewResultDetails(id: number) {
-    console.log('click', id);
     this.route.navigate(['/movie', id, 'search', this.search]);
   }
 }
