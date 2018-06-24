@@ -6,10 +6,11 @@ import { map } from 'rxjs/operators';
 
 import { Search } from './../interfaces/search.interface';
 import { Movie } from '../interfaces/movie.interface';
+import { keys } from 'src/api-keys/keys';
 
 @Injectable()
 export class TheMovieDbApiService {
-  private apiKey = '9600ef8b528a214cba2d53c6cdd71708';
+  private apiKey = keys.theMovieDb;
   private urlLocalHost = 'https://api.themoviedb.org/3';
   search: Search[] = [];
   searchText: string;
