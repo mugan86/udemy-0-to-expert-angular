@@ -12,8 +12,8 @@
     </div>
   </div>
   <div class="row" *ngIf="_mtvshows.search != undefined">
-    <h2 *ngIf="_mtvshows.search">Results: {{ _mtvshows.search.total_results }} </h2>
-    <div class="card-columns">
+    <h2 *ngIf="_mtvshows.search.total_results > 0">Results: {{ _mtvshows.search.total_results }} </h2>
+    <div class="card-columns animated fadeIn fast">
       <div class="card" *ngFor="let result of _mtvshows.search.results">
         <img class="card-img-top" [src]="result|moviesPoster" [alt]="result.original_title">
         <div class="card-body">
