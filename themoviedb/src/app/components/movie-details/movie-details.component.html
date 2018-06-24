@@ -6,9 +6,7 @@
       <img [src]="movie | moviesPoster" [alt]="movie.title" class="img-thumbnail img-fluid"/>
       <br/>
       <br/>
-      <div class="videoWrapper">
-        <iframe *ngIf="movie && trailer" width="560" height="349" [src]="trailer.id.videoId | youtube" frameborder="0" allowfullscreen></iframe>
-      </div>
+      <youtube-video *ngIf="movie && trailer" [videoId]="trailer.id.videoId"></youtube-video>
     </div>
     <div class="col-md-7">
       <h3>Overview</h3>
