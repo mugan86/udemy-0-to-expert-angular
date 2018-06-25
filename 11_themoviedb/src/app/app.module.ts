@@ -24,20 +24,22 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { GalleryComponent } from './widgets/gallery/gallery.component';
 import { PaginationComponent } from './components/shared/pagination/pagination.component';
 import { YoutubeVideoComponent } from './components/youtube-video/youtube-video.component';
+import { LoadingComponent } from './widgets/loading/loading.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DomSecurePipe,
+    GalleryComponent,
     HomeComponent,
+    LoadingComponent,
     MovieDetailsComponent,
-    SearchComponent,
     NavbarComponent,
     MoviesPosterPipe,
-    GalleryComponent,
     PaginationComponent,
-    DomSecurePipe,
+    SearchComponent,
     YoutubePipe,
-    YoutubeVideoComponent
+    YoutubeVideoComponent,
   ],
   imports: [
     APP_ROUTING,
