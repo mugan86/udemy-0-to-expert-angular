@@ -5,11 +5,11 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.css']
 })
-export class PaginationComponent implements OnInit{
-  
+export class PaginationComponent implements OnInit {
+
   @Input() totalPages: number;
   @Input() currentPage: number;
-  listPages:number [] = [];
+  listPages: number [] = [];
   constructor() { }
   ngOnInit(): void {
     this.renderPagination();
@@ -29,7 +29,6 @@ export class PaginationComponent implements OnInit{
       ];
     } else {
       console.log('Basic pagination');
-      
       this.listPages = Array.from(Array(10).keys());
     }
 

@@ -17,5 +17,4 @@ export class NavbarComponent {
     this._mtvshows.searchMovie( text ).subscribe();
     this.router.navigate(['search', text]);
   }
-
 }

@@ -12,7 +12,7 @@ export class SearchComponent {
   @Input() index;
   constructor(
               public _mtvshows: TheMovieDbApiService,
-              private router:ActivatedRoute,
+              private router: ActivatedRoute,
               private route: Router) {
     this.router.params.subscribe( params => {
       if ( params['text'] ) {

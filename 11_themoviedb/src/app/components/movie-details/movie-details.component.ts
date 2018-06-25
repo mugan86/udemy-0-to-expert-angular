@@ -27,23 +27,22 @@ export class MovieDetailsComponent implements OnInit {
       }
       this._mtvshows.getMovie(params['id']).subscribe((res: Movie) => {
         this.movie = res;
-        this.youtubeApi.getSearchVideos(`${this.movie.title} (${this.movie.release_date.substring(0,4)})`).subscribe((res: any) => {
-          if (res[0]) {
-            this.trailer = res[0];
+        this.youtubeApi.getSearchVideos(`${this.movie.title} (${this.movie.release_date.substring(0, 4)})`).subscribe((data: any) => {
+          if (data[0]) {
+            this.trailer = data[0];
           }
-        })
-      })
+        });
+      });
     });
-    
+
   }
 
   returnToBeforePage() {
-    if (this.searchText != '') {
+    if (this.searchText !== '') {
       this.route.navigate([`/${this.beforePage}`, this.searchText]);
     } else {
       this.route.navigate([`/${this.beforePage}`]);
     }
-    
   }
 
 }

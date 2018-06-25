@@ -49,7 +49,8 @@ export class TheMovieDbApiService {
     currentDay.setDate(currentDay.getDate() + 7);
     const nextWeek = `${currentDay.getFullYear()}-${(currentDay.getMonth() + 1)}-${currentDay.getDate()}`;
     console.log(nextWeek);
-    const request = `/discover/movie?sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${currentDayStr}&primary_release_date.lte=${nextWeek}`;
+    const startRequest = `/discover/movie?sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=`;
+    const request = `${startRequest}${currentDayStr}&primary_release_date.lte=${nextWeek}`;
     return this._http.jsonp(this.getURL(request, 'es'), '').pipe(map((res: any) =>  res.results ));
   }
 
