@@ -1,5 +1,6 @@
+<app-loading *ngIf="!elements"></app-loading>
 <br/>
-<h1>{{ title }}</h1>
+<h1 class="row animated fadeIn fast" *ngIf="elements">{{ title }}</h1>
 <hr/>
 <div class="row animated fadeIn fast" *ngIf="elements">
   <div class="col-sm-6">

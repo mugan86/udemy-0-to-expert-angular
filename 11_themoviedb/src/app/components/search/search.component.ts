@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchComponent {
   search = '';
+  loading: boolean;
   @Input() index;
   constructor(
               public _mtvshows: TheMovieDbApiService,
@@ -22,13 +23,18 @@ export class SearchComponent {
     });
   }
   searchMovie() {
+    this.loading = true;
     if (this.search.length === 0) {
       return;
     }
-    this._mtvshows.searchMovie( this.search ).subscribe();
+    this._mtvshows.searchMovie( this.search ).subscribe(res => this.loading = false);
   }
 
   viewResultDetails(id: number) {
     this.route.navigate(['/movie', id, 'search', this.search]);
+  }
+
+  clearSearch() {
+    this.search = '';
   }
 }

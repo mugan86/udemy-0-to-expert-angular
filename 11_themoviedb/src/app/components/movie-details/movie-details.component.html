@@ -1,3 +1,4 @@
+<app-loading *ngIf="!movie"></app-loading>
 <div *ngIf="movie" 
   class="container main-container animated fadeIn fast">
   <h1>{{ movie.original_title }}</h1>
