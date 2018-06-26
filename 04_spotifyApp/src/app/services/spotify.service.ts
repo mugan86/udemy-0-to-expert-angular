@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { TOKEN_API, API_URL } from 'src/app/app.constants';
+import { API_URL } from 'src/app/app.constants';
 import { map } from 'rxjs/operators';
 
 @Injectable({
