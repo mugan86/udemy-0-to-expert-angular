@@ -1,0 +1,19 @@
+<p *ngIf="errorMessage.length > 0" class="text-danger">
+  {{errorMessage}}</p>
+
+<p *ngIf="error.message.length > 0" class="text-danger">
+  {{error.message}}</p>
+
+<form (ngSubmit)="onSignUp()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
+  </div>
+
+  <button type="submit" class="btn btn-success">Register/Login</button>
+</form>

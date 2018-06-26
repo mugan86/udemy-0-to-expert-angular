@@ -13,12 +13,15 @@ import { ChatComponent } from './components/chat/chat.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { ChatService } from './providers/chat.service';
+import { AuthService } from 'src/app/providers/auth.service';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
     LoginComponent,
+    UserLoginComponent,
 
   ],
   imports: [
@@ -29,7 +32,7 @@ import { ChatService } from './providers/chat.service';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features,
     FormsModule
   ],
-  providers: [ ChatService ],
+  providers: [ AuthService, ChatService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
