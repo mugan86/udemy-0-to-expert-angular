@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+md-icon {
+    font-family: 'Material Icons' !important;
+}
+
+html, body {
+    margin: 0
+}
+
+.main-container {
+    padding: 10px;
+    margin-top: 10px;
+}

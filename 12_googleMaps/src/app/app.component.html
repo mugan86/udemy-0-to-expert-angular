@@ -1,20 +1,28 @@
+
 <mat-toolbar color="accent">
   <mat-toolbar-row>
     <span>{{ title }}</span>
   </mat-toolbar-row>
 </mat-toolbar>
-
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 <!--<agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>-->
 <div class="main-container">
-  <agm-map [latitude]="center.lat" [longitude]="center.lng">
-    <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
-      <agm-marker *ngFor="let item of locations; let i = index" [latitude]="item.lat" [longitude]="item.lng">
-      </agm-marker>
-      <!-- multiple markers -->
-    </agm-marker-cluster>
-  </agm-map>
+  <!--<app-buttons></app-buttons>
+  <app-gridlist></app-gridlist>-->
+    <app-map></app-map>
+   
+
+
+
+
+    <!--<agm-map [latitude]="center.lat" [longitude]="center.lng">
+      <agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
+        <agm-marker *ngFor="let item of locations; let i = index" [latitude]="item.lat" [longitude]="item.lng">
+        </agm-marker>
+        multiple markers
+      </agm-marker-cluster>
+    </agm-map>-->
 </div>

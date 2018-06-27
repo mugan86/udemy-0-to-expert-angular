@@ -5,10 +5,19 @@ import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { GridlistComponent } from './components/gridlist/gridlist.component';
+import { ButtonsComponent } from './components/buttons/buttons.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AutocompleteComponent,
+    GridlistComponent,
+    ButtonsComponent,
+    MapComponent
   ],
   imports: [
     AgmJsMarkerClustererModule,
@@ -17,7 +26,9 @@ import { MaterialModule } from './material.module';
     }),
     BrowserAnimationsModule,
     BrowserModule,
-    MaterialModule
+    FormsModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

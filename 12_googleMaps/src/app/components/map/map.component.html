@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>Map</mat-card-title>
+  <mat-card-subtitle>
+    <agm-map (mapClick)="addMarker( $event )" [latitude]="lat" [longitude]="lng" [zoom]="12">
+      <agm-marker *ngFor="let marker of markers; let i = index" [latitude]="marker.lat" [longitude]="marker.lng">
+        <agm-info-window>
+          <strong>{{ marker.title }}</strong>
+          <p>{{ marker.description }}</p>
+          <div>
+            <button mat-raised-button color="primary">Editar</button>
+            <button (click)="deleteSelectMarker( i )" mat-raised-button color="warn">Borrar</button>
+          </div>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </mat-card-subtitle>
+</mat-card>
