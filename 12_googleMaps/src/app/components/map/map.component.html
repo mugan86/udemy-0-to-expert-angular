@@ -7,7 +7,7 @@
           <strong>{{ marker.title }}</strong>
           <p>{{ marker.description }}</p>
           <div class="info-marker-options">
-            <button mat-raised-button color="primary">Editar</button>
+            <button (click)="editMarker( marker )" mat-raised-button color="primary">Editar</button>
             <button (click)="deleteSelectMarker( i )" mat-raised-button color="warn">Borrar</button>
           </div>
         </agm-info-window>

@@ -10,14 +10,19 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { GridlistComponent } from './components/gridlist/gridlist.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { MapComponent } from './components/map/map.component';
+import { MapEditComponent } from './components/map/map-edit.component';
 
 @NgModule({
+  entryComponents: [
+    MapEditComponent
+  ],
   declarations: [
     AppComponent,
     AutocompleteComponent,
     GridlistComponent,
     ButtonsComponent,
-    MapComponent
+    MapComponent,
+    MapEditComponent
   ],
   imports: [
     AgmJsMarkerClustererModule,

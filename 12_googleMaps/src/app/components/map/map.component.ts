@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Marker } from '../../classes/marker.class';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { MapEditComponent } from './map-edit.component';
 
 @Component({
   selector: 'app-map',
@@ -12,12 +14,11 @@ export class MapComponent {
   markers: Marker[] = [];
   lat = 51.678418;
   lng = 7.809007;
-  constructor( private snackBar: MatSnackBar ) {
+  constructor( private snackBar: MatSnackBar,
+                private dialog: MatDialog ) {
     if (JSON.parse(localStorage.getItem('markers')) != null) {
       this.markers = JSON.parse(localStorage.getItem('markers'));
     }
-    const newMarker = new Marker(51.678418, 7.809007);
-    this.markers.push(newMarker);
   }
 
   addMarker( event ) {
@@ -43,6 +44,28 @@ export class MapComponent {
     // Simple message with an action.
     this.snackBar.open('Marker delete successfully!', 'Close', {
       duration: 3000
+    });
+  }
+
+  editMarker( marker: Marker ) {
+    const dialogRef = this.dialog.open(MapEditComponent, {
+      width: '250px',
+      data: { title: marker.title, desc: marker.description }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (!result) {
+        return;
+      }
+      marker.title = result.title;
+      marker.description = result.desc;
+
+      this.saveInStorage();
+      this.snackBar.open('Marker correctly update!', 'Close', {
+        duration: 3000
+      });
     });
   }
 
