@@ -1,3 +1,7 @@
 agm-map {
   height: 500px;
 }
+
+.info-marker-options {
+  text-align: center;
+}
