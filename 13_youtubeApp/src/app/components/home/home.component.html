@@ -1,0 +1,36 @@
+<div class="container main-container">
+  <h1>Youtube App</h1>
+  <hr/>
+  <div class="card-columns" *ngIf="videos.length > 0">
+    <div class="card" *ngFor="let video of videos; let i = index;">
+      <img class="card-img-top" [src]="video?.thumbnails.high.url" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ video?.title }}</h5>
+        <button  (click)="playVideo(!!video)"type="button" class="btn btn-outline-danger"> Show video </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" *ngIf="videos.length > 0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+      </div>
+      <div class="modal-body">
+        <youtube-video [videoId]="videos[0]?.resourceId.videoId"></youtube-video>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
