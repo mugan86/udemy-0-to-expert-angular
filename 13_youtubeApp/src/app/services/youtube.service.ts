@@ -14,7 +14,7 @@ export class YoutubeService {
   constructor( private _http: HttpClient) { }
 
   getUrl(request: string) {
-    return `${this.youtubeApiUrl}${request}&maxResults=10&key=${YOUTUBE_API_KEY}`;
+    return `${this.youtubeApiUrl}${request}&maxResults=9&key=${YOUTUBE_API_KEY}`;
   }
 
   getSelectPlaylistVideos(playlist: string) {

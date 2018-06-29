@@ -1,35 +1,43 @@
 <div class="container main-container">
   <h1>Youtube App</h1>
   <hr/>
-  <div class="card-columns" *ngIf="videos.length > 0">
-    <div class="card" *ngFor="let video of videos; let i = index;">
-      <img class="card-img-top" [src]="video?.thumbnails.high.url" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{ video?.title }}</h5>
-        <button  (click)="playVideo(!!video)"type="button" class="btn btn-outline-danger"> Show video </button>
+  <div class="row" *ngIf="videos.length > 0">
+    <div class="col-md-4" *ngFor="let video of videos; let i = index;">
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" [src]="video?.thumbnails.high.url" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ video?.title }}</h5>
+          <button (click)="playVideo(video)" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal"> Show video </button>
+        </div>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button type="button" class="btn btn-outline-danger text-center">
+        Load more... </button>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
-<div class="modal fade" *ngIf="videos.length > 0" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" *ngIf="videos.length > 0" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ selectVideo.title}}
+        </h5>
       </div>
       <div class="modal-body">
-        <youtube-video [videoId]="videos[0]?.resourceId.videoId"></youtube-video>
+        <youtube-video *ngIf="selectVideo" [videoId]="selectVideo?.resourceId.videoId"></youtube-video>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" (click)="closeModal()" class="btn btn-primary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
