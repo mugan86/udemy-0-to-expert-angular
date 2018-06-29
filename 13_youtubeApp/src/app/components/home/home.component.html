@@ -7,18 +7,12 @@
         <img class="card-img-top" [src]="video?.thumbnails.high.url" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ video?.title }}</h5>
-          <button (click)="playVideo(video)" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal"> Show video </button>
+          <button (click)="playVideo(video)" type="button" class="btn btn-block btn-outline-danger" data-toggle="modal" data-target="#exampleModal"> Show video </button>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <button type="button" class="btn btn-outline-danger text-center">
-        Load more... </button>
-    </div>
-    <div class="col-md-4"></div>
+    <button (click)="loadMore(true)" type="button" class="btn btn-block btn-outline-danger text-center">
+      Load more... </button>
   </div>
 </div>
 
@@ -37,7 +31,7 @@
         <youtube-video *ngIf="selectVideo" [videoId]="selectVideo?.resourceId.videoId"></youtube-video>
       </div>
       <div class="modal-footer">
-        <button type="button" (click)="closeModal()" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" (click)="closeModal()" class="btn btn-primary">Close</button>
       </div>
     </div>
   </div>

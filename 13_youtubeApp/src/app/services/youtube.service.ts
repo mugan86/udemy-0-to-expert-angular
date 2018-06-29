@@ -9,7 +9,7 @@ import { Snippet } from '../interfaces/snippet.interface';
 export class YoutubeService {
   private youtubeApiUrl = 'https://www.googleapis.com/youtube/v3/';
   private playlistItems = 'playlistItems';
-  private nextPageToken: string;
+  private nextPageToken = '';
   private videos: Snippet[];
   constructor( private _http: HttpClient) { }
 
@@ -17,8 +17,15 @@ export class YoutubeService {
     return `${this.youtubeApiUrl}${request}&maxResults=9&key=${YOUTUBE_API_KEY}`;
   }
 
-  getSelectPlaylistVideos(playlist: string) {
-    return this._http.get(this.getUrl(`${this.playlistItems}?part=snippet&playlistId=${playlist}`))
+  getSelectPlaylistVideos(playlist: string, loadMore: boolean = false) {
+    let url: string;
+    if (this.nextPageToken === '') {
+      url = `${this.playlistItems}?part=snippet&playlistId=${playlist}`;
+    } else {
+      url = `${this.playlistItems}?part=snippet&playlistId=${playlist}&pageToken=${this.nextPageToken}`;
+    }
+    console.log(url);
+    return this._http.get(this.getUrl(url))
       .pipe(
         map((res: any) => {
           this.nextPageToken = res.nextPageToken;

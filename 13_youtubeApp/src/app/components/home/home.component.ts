@@ -16,8 +16,16 @@ export class HomeComponent implements OnInit {
   constructor( private youtubeAppService: YoutubeService) { }
 
   ngOnInit() {
-    this.youtubeAppService.getSelectPlaylistVideos(this.uploadVideosListId).subscribe( (res: Snippet[]) => {
-      this.videos = res;
+    this.loadMore();
+  }
+
+  loadMore(addItems: boolean = false) {
+    this.youtubeAppService.getSelectPlaylistVideos(this.uploadVideosListId, addItems).subscribe((res: Snippet[]) => {
+      if (!addItems) {
+        this.videos = res;
+      } else {
+        this.videos.push.apply(this.videos, res);
+      }
       this.selectVideo = this.videos[0];
       console.log(this.videos.length);
       console.log(this.videos);
@@ -31,6 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   closeModal() {
+    $('#videoModal').modal('hide');
     $('#videoModal').on('hidden.bs.modal', function (e) {
       $('#videoModal iframe').attr('src', $('#videoModal iframe').attr('src'));
     });
