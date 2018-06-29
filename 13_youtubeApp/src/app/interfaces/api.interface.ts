@@ -5,7 +5,7 @@ import { Item } from './item.interface';
 export interface ApiYoutube {
     kind: string;
     etag: string;
-    nextPageToken: string;
+    nextPageToken?: string;
     pageInfo: PageInfo;
     items: Item[];
 }

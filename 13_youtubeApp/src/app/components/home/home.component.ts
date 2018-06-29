@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeService } from '../../services/youtube.service';
 import { Snippet } from '../../interfaces/snippet.interface';
+import { ANARTZ_MUGIKA_CHANNEL_UPLOADS, ANARTZ_MUGIKA_CHANNEL_ID } from '../../app.constant';
+import { ApiYoutube } from '../../interfaces/api.interface';
 
 declare var $: any;
 
@@ -10,31 +12,33 @@ declare var $: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private uploadVideosListId = 'UUTh7-deUJBNv2tHRiMGcXxg';
+  private uploadVideosListId = ANARTZ_MUGIKA_CHANNEL_UPLOADS;
+  private channelId = ANARTZ_MUGIKA_CHANNEL_ID;
   videos: Snippet[] = [];
+  channelInfo: Snippet;
   selectVideo: Snippet;
-  constructor( private youtubeAppService: YoutubeService) { }
+  constructor( public youtubeAppService: YoutubeService) { }
 
   ngOnInit() {
-    this.loadMore();
+    this.youtubeAppService.getUserChannelInfo(this.channelId).subscribe((res: Snippet) => {
+      this.channelInfo = res;
+      this.loadMore();
+    });
   }
 
   loadMore(addItems: boolean = false) {
-    this.youtubeAppService.getSelectPlaylistVideos(this.uploadVideosListId, addItems).subscribe((res: Snippet[]) => {
+    this.youtubeAppService.getSelectPlaylistVideos(this.uploadVideosListId).subscribe((res: Snippet[]) => {
       if (!addItems) {
         this.videos = res;
       } else {
         this.videos.push.apply(this.videos, res);
       }
       this.selectVideo = this.videos[0];
-      console.log(this.videos.length);
-      console.log(this.videos);
     });
   }
 
   playVideo(video: Snippet) {
     this.selectVideo = video;
-    console.log(video.resourceId.videoId);
     $('#videoModal').modal();
   }
 

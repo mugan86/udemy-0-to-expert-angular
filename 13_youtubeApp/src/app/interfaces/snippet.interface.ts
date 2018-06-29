@@ -1,4 +1,5 @@
 import { Thumbnails, ResourceId } from './thumbnails.interface';
+import { Localized } from './localized.interface';
 
 export interface Snippet {
     publishedAt: Date;
@@ -6,8 +7,15 @@ export interface Snippet {
     title: string;
     description: string;
     thumbnails: Thumbnails;
-    channelTitle: string;
-    playlistId: string;
-    position: number;
-    resourceId: ResourceId;
+    channelTitle?: string;
+    playlistId?: string;
+    position?: number;
+    resourceId?: ResourceId;
+    customUrl?: string;
+    localized?: Localized;
+    country?: string;
 }
+
+
+
+

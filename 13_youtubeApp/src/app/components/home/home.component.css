@@ -1,0 +1,23 @@
+.modal-dialog {
+    max-width: 800px;
+}
+
+#load-more {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: center;
+    width: 100%;
+}
+#load-more a {
+    background: #042a63;
+    border-radius: 3px;
+    color: white;
+    display: inline-block;
+    padding: 10px 30px;
+    transition: all 0.25s ease-out;
+    -webkit-font-smoothing: antialiased;
+}
+
+#load-more a:hover {
+    background-color: #021737;
+}

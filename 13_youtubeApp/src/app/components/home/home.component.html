@@ -1,12 +1,45 @@
 <div class="container main-container">
   <h1>Youtube App</h1>
   <hr/>
+  <div class="row animated fadeIn m-5">
+    <div class="col-2">
+      <img [src]="channelInfo?.thumbnails.high.url" alt="" class="img-thumbnail img-circle">
+    </div>
+    <div class="col">
+      <h3>{{ channelInfo?.title }}</h3>
+      <p>
+           {{ channelInfo?.description }}
+      </p>
+      <p>
+        <small class="text-muted">Member from: {{ channelInfo?.publishedAt | date:'yyyy/MM/dd HH:mm'}}</small>
+      </p>
+    </div>
+    <div class="col-2 text-right">
+      <a href="https://github.com/mugan86" target="_blank" class="btn btn-outline-success btn-block">
+        <i class="fab fa-github"></i> Github
+      </a>
+      <a href="https://play.google.com/store/apps/developer?id=Anartz+Muxika&hl=es" target="_blank" class="btn btn-outline-secondary btn-block">
+        <i class="fab fa-google-play"></i> Google Play
+      </a>
+      <a href="https://twitter.com/mugan86" target="_blank" class="btn btn-outline-info btn-block">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+      <a href="https://www.linkedin.com/in/anartz-mugika-0007a062/" target="_blank" class="btn btn-outline-primary btn-block">
+        <i class="fab fa-linkedin"></i> Linkedin
+      </a>
+    </div>
+  </div>
+  <h3>My upload videos: {{ youtubeAppService?.userTotalVideos }}</h3>
+  <hr/>
   <div class="row" *ngIf="videos.length > 0">
     <div class="col-md-4" *ngFor="let video of videos; let i = index;">
       <div class="card mb-4 box-shadow">
         <img class="card-img-top" [src]="video?.thumbnails.high.url" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ video?.title }}</h5>
+          <p>
+            <small class="text-muted">Publish data: {{ video?.publishedAt | date:'yyyy/MM/dd HH:mm'}}</small>
+          </p>
           <button (click)="playVideo(video)" type="button" class="btn btn-block btn-outline-danger" data-toggle="modal" data-target="#exampleModal"> Show video </button>
         </div>
       </div>
@@ -19,7 +52,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" *ngIf="videos.length > 0" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" *ngIf="videos.length > 0" id="videoModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
