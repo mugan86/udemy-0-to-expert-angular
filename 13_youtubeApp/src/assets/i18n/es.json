@@ -1,0 +1,22 @@
+{
+    "APP": {
+        "MEMBER_FROM": "Fecha de registro: ",
+        "TITLE": "Youtube App"
+    },
+    "AUTHOR": "Anartz Mugika Ledo",
+    "EMAIL": "mugan86@gmail.com",
+    "GITHUB": "https://github.com/mugan86",
+    "LANGS": {
+        "EN": "English",
+        "ES": "Spanish",
+        "EU": "Basque"
+    },
+    "TWITTER": "@mugan86",
+    "VIDEO": {
+        "CLOSE": "Cerrar",
+        "LOAD_MORE": "Cargar más...",
+        "PUBLISH_DATA": "Fecha de publicación: ",
+        "SHOW": "Ver video",
+        "UPLOAD_TOTALS": "Videos subidos: "
+    }
+}

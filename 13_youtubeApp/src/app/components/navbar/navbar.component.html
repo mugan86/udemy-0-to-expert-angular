@@ -1,3 +1,8 @@
 <nav class="navbar navbar-inverse bg-danger">
-  <a class="navbar-brand white" href="#"><i class="fab fa-youtube"></i> Youtube App</a>
+  <a class="navbar-brand white" href="#"><i class="fab fa-youtube"></i> {{ 'APP.TITLE' | translate }}</a>
+  <div class="form-inline my-2 my-lg-0">
+    <span class="langs" (click)="changeLanguage('es')" [ngClass]="{'lang-select':activeLanguage == 'es'}">ES</span>&nbsp;&nbsp;
+    <span class="langs" (click)="changeLanguage('en')" [ngClass]="{'lang-select':activeLanguage == 'en'}">EN</span>&nbsp;&nbsp;
+    <span class="langs" (click)="changeLanguage('eu')" [ngClass]="{'lang-select':activeLanguage == 'eu'}">EU</span>&nbsp;&nbsp;&nbsp;
+  </div>
 </nav>

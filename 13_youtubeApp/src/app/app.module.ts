@@ -10,6 +10,7 @@ import { YoutubeService } from './services/youtube.service';
 import { YoutubeVideoComponent } from './components/youtube-video/youtube-video.component';
 import { YoutubePipe } from './pipes/youtube.pipe';
 import { DomSecurePipe } from './pipes/dom-secure.pipe';
+import { LanguageConfigModule } from './language-config.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,10 @@ import { DomSecurePipe } from './pipes/dom-secure.pipe';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    LanguageConfigModule.forRoot(['es', 'eu', 'en'], 'es')
   ],
+  exports: [LanguageConfigModule],
   providers: [ YoutubeService ],
   bootstrap: [AppComponent]
 })

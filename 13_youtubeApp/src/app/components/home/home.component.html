@@ -2,7 +2,7 @@
   <h1>Youtube App</h1>
   <hr/>
   <div class="row animated fadeIn m-5">
-    <div class="col-2">
+    <div class="col-md-2">
       <img [src]="channelInfo?.thumbnails.high.url" alt="" class="img-thumbnail img-circle">
     </div>
     <div class="col">
@@ -11,10 +11,10 @@
            {{ channelInfo?.description }}
       </p>
       <p>
-        <small class="text-muted">Member from: {{ channelInfo?.publishedAt | date:'yyyy/MM/dd HH:mm'}}</small>
+        <small class="text-muted">{{ 'APP.MEMBER_FROM' | translate }} {{ channelInfo?.publishedAt | date:'yyyy/MM/dd HH:mm'}}</small>
       </p>
     </div>
-    <div class="col-2 text-right">
+    <div class="col-md-2 text-right">
       <a href="https://github.com/mugan86" target="_blank" class="btn btn-outline-success btn-block">
         <i class="fab fa-github"></i> Github
       </a>
@@ -29,7 +29,7 @@
       </a>
     </div>
   </div>
-  <h3>My upload videos: {{ youtubeAppService?.userTotalVideos }}</h3>
+  <h3>{{ 'VIDEO.UPLOAD_TOTALS' | translate }} {{ youtubeAppService?.userTotalVideos }}</h3>
   <hr/>
   <div class="row" *ngIf="videos.length > 0">
     <div class="col-md-4" *ngFor="let video of videos; let i = index;">
@@ -38,14 +38,15 @@
         <div class="card-body">
           <h5 class="card-title">{{ video?.title }}</h5>
           <p>
-            <small class="text-muted">Publish data: {{ video?.publishedAt | date:'yyyy/MM/dd HH:mm'}}</small>
+            <small class="text-muted">{{ 'VIDEO.PUBLISH_DATA' | translate }} {{ video?.publishedAt | date:'yyyy/MM/dd HH:mm'}}</small>
           </p>
-          <button (click)="playVideo(video)" type="button" class="btn btn-block btn-outline-danger" data-toggle="modal" data-target="#exampleModal"> Show video </button>
+          <button (click)="playVideo(video)" type="button" class="btn btn-block btn-outline-danger" data-toggle="modal" data-target="#exampleModal"> {{ 'VIDEO.SHOW' | translate }} </button>
         </div>
       </div>
     </div>
     <button (click)="loadMore(true)" type="button" class="btn btn-block btn-outline-danger text-center">
-      Load more... </button>
+       {{ 'VIDEO.LOAD_MORE' | translate }}
+      </button>
   </div>
 </div>
 
@@ -64,7 +65,7 @@
         <youtube-video *ngIf="selectVideo" [videoId]="selectVideo?.resourceId.videoId"></youtube-video>
       </div>
       <div class="modal-footer">
-        <button type="button" (click)="closeModal()" class="btn btn-primary">Close</button>
+        <button type="button" (click)="closeModal()" class="btn btn-primary">{{ 'VIDEO.CLOSE' | translate }}</button>
       </div>
     </div>
   </div>

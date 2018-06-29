@@ -1,0 +1,22 @@
+{
+    "APP": {
+        "MEMBER_FROM": "Izena emandako data: ",
+        "TITLE": "Youtube Aplikazioa"
+    },
+    "AUTHOR": "Anartz Mugika Ledo",
+    "EMAIL": "mugan86@gmail.com",
+    "GITHUB": "https://github.com/mugan86",
+    "LANGS": {
+        "EN": "English",
+        "ES": "Spanish",
+        "EU": "Basque"
+    },
+    "TWITTER": "@mugan86",
+    "VIDEO": {
+        "CLOSE": "Itxi",
+        "LOAD_MORE": "Gehiago kargatu...",
+        "PUBLISH_DATA": "Argitalpen data: ",
+        "SHOW": "Bideoa ikusi",
+        "UPLOAD_TOTALS": "Igotako bideoak: "
+    }
+}

@@ -1,3 +1,17 @@
 .white {
     color: white;
 }
+
+.langs {color: white}
+.langs:hover {
+cursor: pointer;
+text-decoration: underline;
+}
+.langs:active {
+color: white;
+}
+
+.lang-select {
+color: white;
+text-decoration: underline
+}

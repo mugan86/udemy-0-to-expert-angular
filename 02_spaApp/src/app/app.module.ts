@@ -14,7 +14,6 @@ import { HeroesService } from './services/heroes.service';
 
 // Components
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
