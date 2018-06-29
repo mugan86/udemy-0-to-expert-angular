@@ -9,6 +9,7 @@ https://www.udemy.com/angular-2-fernando-herrera/learn/v4/content
 * [Heroes App with Firebase Database](https://mugan86.com/portfolio/udemy-course/angular/firebase/heroesapp-with-db)
 * [Firechat with Google / Twitter Login](https://mugan86.com/portfolio/udemy-course/angular/firebase/chat)
 * [The Movie DB Api - Movies App](https://mugan86.com/portfolio/udemy-course/angular/themoviedb)
+* [Youtube App -  Mugan86 Channel with i18n](https://mugan86.com/portfolio/udemy-course/angular/youtubeApp/)
 
 # Take fast reference to POST request: 
 
