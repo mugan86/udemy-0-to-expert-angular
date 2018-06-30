@@ -1,5 +1,14 @@
 <div class="container">
   <h1>Dinamic graphics <small>Angular</small></h1>
   <hr/>
-  <app-graphic-lines></app-graphic-lines>
+  <!--<app-graphic-lines></app-graphic-lines>
+  <app-bar-charts></app-bar-charts>-->
+  <div class="row">
+    <div class="col-md-12" *ngIf="ready">
+      <div style="display: block;">
+        <canvas baseChart width="400" height="150" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+          [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+      </div>
+    </div>
+  </div>
 </div>
