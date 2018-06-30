@@ -16,7 +16,27 @@ export class GraphicLinesComponent {
   public lineChartLabels: Array<string> = ['January', 'February', 'March', 'April', 'May', 'June',
                                             'July', 'August', 'September', 'October', 'November', 'December'];
   public lineChartOptions: any = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [{
+        display: true,
+        stacked: false,
+        suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+      }],
+
+      xAxes: [{
+        display: true,
+        stacked: true,
+        scaleLabel: {
+          display: true,
+          labelString: 'Months',
+          fontStyle: 'bold'
+        }
+      }]
+    },
+    animation: {
+      duration: 750
+    }
   };
   public lineChartColors: Array<any> = [
     { // yellow
@@ -44,7 +64,7 @@ export class GraphicLinesComponent {
       pointHoverBorderColor: 'rgba(0, 153, 230, 0.8)'
     }
   ];
-  public lineChartLegend = true;
+  public lineChartLegend = false;
   public lineChartType = 'line';
   public randomize(): void {
     const _lineChartData: Array<any> = new Array(this.lineChartData.length);
