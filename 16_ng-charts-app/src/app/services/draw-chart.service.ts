@@ -95,4 +95,11 @@ export class DrawChartService {
     const roundedTempNumber = Math.round(tempNumber);
     return roundedTempNumber / factor;
   }
+  /**
+   * Take Max value and min value from values number array numbers
+   * @param values numbers array to take max value and min value
+   */
+  getMaxMinValues(values: number[]) {
+    return [Math.max.apply(Math, values), Math.min.apply(Math, values)];
+  }
 }
