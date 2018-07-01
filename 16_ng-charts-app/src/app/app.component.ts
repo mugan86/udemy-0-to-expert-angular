@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
   constructor(private filesLoadService: FilesLoadService) { }
 
   ngOnInit(): void {
-    this.filesLoadService.getJSON().subscribe((res: Activity) => {
+    this.filesLoadService.getJSON('11_08_2017_malgrat').subscribe((res: Activity) => {
       this.selectActivity = res;
       console.log(this.selectActivity.dist);
       console.log(this.selectActivity.high);
@@ -45,6 +45,10 @@ export class AppComponent implements OnInit {
         this.elevations.push(p.ele);
         this.distanciaLabels.push(this.round(p.total, 2));
       }
+      const max_of_array = Math.max.apply(Math, this.elevations);
+      const min_of_array = Math.min.apply(Math, this.elevations);
+      console.log('Max altitude', max_of_array);
+      console.log('Min altitude', min_of_array);
       console.log(this.distanciaLabels);
       console.log(this.elevations);
       console.log(this.fcs);
