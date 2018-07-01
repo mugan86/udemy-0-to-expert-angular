@@ -6,8 +6,16 @@
   <div class="row">
     <div class="col-md-12" *ngIf="ready">
       <div style="display: block;">
-        <canvas baseChart width="400" height="150" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-          [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+        <canvas baseChart width="400" height="150" [datasets]="lineChartData1" [labels]="lineChartLabels" [options]="lineChartOptions1"
+          [colors]="lineChartColors1" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" *ngIf="ready">
+      <div style="display: block;">
+        <canvas baseChart width="400" height="150" [datasets]="lineChartData2" [labels]="lineChartLabels" [options]="lineChartOptions2"
+          [colors]="lineChartColors2" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
       </div>
     </div>
   </div>
