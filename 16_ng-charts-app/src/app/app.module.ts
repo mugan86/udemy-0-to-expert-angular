@@ -11,6 +11,7 @@ import { RadarChartsComponent } from './components/radar-charts/radar-charts.com
 
 // Services
 import { FilesLoadService } from './services/files-load.service';
+import { DrawChartService } from './services/draw-chart.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { FilesLoadService } from './services/files-load.service';
     ChartsModule,
     HttpClientModule
   ],
-  providers: [ FilesLoadService ],
+  providers: [ DrawChartService, FilesLoadService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
