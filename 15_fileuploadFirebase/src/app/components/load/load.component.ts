@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileItem } from '../../models/file-item';
 import { LoadImagesService } from '../../services/load-images.service';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-load',
@@ -8,13 +9,13 @@ import { LoadImagesService } from '../../services/load-images.service';
   styles: []
 })
 export class LoadComponent implements OnInit {
-
+  stayOnElement = false;
   files: FileItem[] = [];
-  constructor( public _loadImages: LoadImagesService) {}
+  constructor(public _loadImages: LoadImagesService) {}
 
   ngOnInit() {}
 
   loadImages() {
-    this._loadImages.loadFirebaseImages( this.files);
+    this._loadImages.loadFirebaseImages(this.files);
   }
 }

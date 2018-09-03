@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4">
       <h3>Select files</h3>
-      <div class="well drop-zone">
+      <div appNgDropZones (mouseOver)="stayOnElement = $event " [ngClass]="{ 'file-over': stayOnElement }" class="well drop-zone">
         <h4> Put files in this section </h4>
         <img src="assets/img/drop-images.png" />
       </div>

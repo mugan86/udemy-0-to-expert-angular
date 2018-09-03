@@ -10,15 +10,17 @@ import { PhotosComponent } from './components/photos/photos.component';
 import { LoadComponent } from './components/load/load.component';
 import { APP_ROUTES } from './app.routes';
 import { environment } from '../environments/environment';
+import { NgDropZonesDirective } from './directives/ng-drop-zones.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
-    LoadComponent
+    LoadComponent,
+    NgDropZonesDirective
   ],
   imports: [
-    AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features,
