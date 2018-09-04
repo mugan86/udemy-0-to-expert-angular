@@ -1,6 +1,5 @@
-import { Directive , EventEmitter, ElementRef, HostListener, Input, Output} from '@angular/core';
+import { Directive , EventEmitter, ElementRef, HostListener, Input, Output, Host} from '@angular/core';
 import { FileItem } from '../models/file-item';
-import { ngDevModeResetPerfCounters } from '@angular/core/src/render3/ng_dev_mode';
 
 // EventEmitter, para notificar sobre sucesos.
 // HostListener, para escuchar eventos del ratón
@@ -9,7 +8,7 @@ import { ngDevModeResetPerfCounters } from '@angular/core/src/render3/ng_dev_mod
 })
 export class NgDropZonesDirective {
 
-  @Input() files: FileItem[];
+  @Input() files: FileItem[] = [];
   @Output()
   mouseOver: EventEmitter<boolean> = new EventEmitter();
   constructor() {}
@@ -23,11 +22,40 @@ export class NgDropZonesDirective {
   @HostListener('dragover', ['$event'])
   public onDragEnter(event: any) {
     this.mouseOver.emit(true);
+    this._preventAndPause( event );
   }
 
   @HostListener('dragleave', ['$event'])
   public onDragLeave(event: any) {
     this.mouseOver.emit(false);
+    this._preventAndPause(event);
+  }
+
+  @HostListener('drop', ['$event'])
+  public onDrop(event: any) {
+    const trasnference = this._getTransference(event);
+    if (!trasnference) {
+      return;
+    }
+    this._preventAndPause( event );
+    this._extractFiles(trasnference.files);
+    this.mouseOver.emit(false);
+  }
+
+  private _getTransference ( event: any ) {
+    return event.dataTransfer ? event.dataTransfer : event.originalEvent.dataTransfer;
+  }
+
+  private _extractFiles( filesList: FileList ) {
+    // tslint:disable-next-line:forin
+    for ( const property in Object.getOwnPropertyNames ( filesList)) {
+      const temporaly = filesList[property];
+      if ( this._fileCanLoad( temporaly )) {
+        this.files.push( new FileItem( temporaly ));
+      }
+    }
+    console.log(this.files);
+
   }
 
   // Validations
