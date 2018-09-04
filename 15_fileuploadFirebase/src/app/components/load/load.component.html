@@ -22,7 +22,7 @@
         </thead>
         <tbody>
           <tr *ngFor=" let file of files">
-            <td>{{ file.archiveName }}</td>
+            <td [ngClass]="{ 'text-green': file.progress >= 100 }">{{ file.archiveName }}</td>
             <td>{{ file.file.size / 1024 / 1024 | number: '.2-2' }} MB</td>
             <td>
               <div class="progress">
