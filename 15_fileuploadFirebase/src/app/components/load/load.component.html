@@ -10,7 +10,7 @@
     <div class="col-md-8">
       <h4> Load files </h4>
       <button class="btn btn-success" (click)="loadImages()" [disabled]="files.length === 0"> Load to Firebase</button>&nbsp;
-      <button class="btn btn-danger"> Clean </button>
+      <button class="btn btn-danger" (click)="clickFiles()"> Clean </button>
 
       <table class="table">
         <thead>
@@ -21,12 +21,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>XYZ</td>
-            <td>12 MB</td>
+          <tr *ngFor=" let file of files">
+            <td>{{ file.archiveName }}</td>
+            <td>{{ file.file.size / 1024 / 1024 | number: '.2-2' }} MB</td>
             <td>
               <div class="progress">
-                <div class="progress-bar bg-info" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                <div class="progress-bar bg-info" role="progressbar" [ngStyle]="{ 'width': file.progress + '%'}" [attr.aria-valuenow]="file.progress" aria-valuemin="0" aria-valuemax="100">{{ file.progress }}%</div>
               </div>
             </td>
           </tr>

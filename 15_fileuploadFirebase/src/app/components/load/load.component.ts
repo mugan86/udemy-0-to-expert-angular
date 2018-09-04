@@ -18,4 +18,8 @@ export class LoadComponent implements OnInit {
   loadImages() {
     this._loadImages.loadFirebaseImages(this.files);
   }
+
+  clickFiles() {
+    this.files = [];
+  }
 }
