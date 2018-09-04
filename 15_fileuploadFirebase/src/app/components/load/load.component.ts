@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileItem } from '../../models/file-item';
 import { LoadImagesService } from '../../services/load-images.service';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-load',

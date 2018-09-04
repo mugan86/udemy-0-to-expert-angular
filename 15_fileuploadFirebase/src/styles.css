@@ -21,3 +21,8 @@
 .text-green { 
 	color: green 
 }
+
+.progress-bar span {
+    text-align: center;
+    padding: 20px;
+}

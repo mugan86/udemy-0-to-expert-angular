@@ -26,7 +26,9 @@
             <td>{{ file.file.size / 1024 / 1024 | number: '.2-2' }} MB</td>
             <td>
               <div class="progress">
-                <div class="progress-bar bg-info" role="progressbar" [ngStyle]="{ 'width': file.progress + '%'}" [attr.aria-valuenow]="file.progress" aria-valuemin="0" aria-valuemax="100">{{ file.progress }}%</div>
+                <div class="progress-bar bg-info" role="progressbar" [ngStyle]="{ 'width': file.progress + '%'}" [attr.aria-valuenow]="file.progress" aria-valuemin="0" aria-valuemax="100">
+                  <span>{{ file.progress }}%</span>
+                </div>
               </div>
             </td>
           </tr>
